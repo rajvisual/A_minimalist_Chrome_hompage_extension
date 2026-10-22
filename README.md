@@ -1,6 +1,21 @@
 # A Minimalist Chrome Homepage Extension
 
+<<<<<<< HEAD
 A minimalist custom New Tab experience for Google Chrome.
+=======
+
+## ✨ Preview
+
+### ☀️ Light Theme
+![Light Theme](screenshots/light-theme.png)
+
+### 🌙 Dark Theme
+![Dark Theme](screenshots/dark-theme.png)
+
+
+## 1. Overview
+This package contains a custom, minimalist Chrome New Tab Extension and standalone homepage featuring a clean aesthetic with an obsidian fluid background, frosted glass search bar, dynamic bookmarks bar connected directly to Chrome's native Bookmarks API, 43-app Google launcher, and Rahul Raj Google Account drawer.
+>>>>>>> d65e368 (docs: add light and dark theme screenshots)
 
 ## Download
 
