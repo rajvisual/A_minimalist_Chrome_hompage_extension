@@ -8,7 +8,12 @@
   },
   "permissions": [
     "storage",
-    "bookmarks"
+    "bookmarks",
+    "history"
+  ],
+  "host_permissions": [
+    "https://suggestqueries.google.com/*",
+    "*://*.google.com/*"
   ],
   "icons": {
     "16": "icons/icon16.png",

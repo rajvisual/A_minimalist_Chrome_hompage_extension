@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scrollbar-gutter: stable;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-darkbg text-slate-100 h-screen min-h-screen font-sans antialiased relative overflow-hidden selection:bg-[#1B54FF] selection:text-white transition-colors duration-300 dark flex flex-col" id="bodyRoot">
-<!-- ======================================================== -->
+<body class="bg-darkbg text-slate-100 min-h-screen font-sans antialiased relative overflow-y-auto  selection:bg-[#1B54FF] selection:text-white transition-colors duration-300 dark flex flex-col overflow-x-hidden" id="bodyRoot">
+
+  <!-- ======================================================== -->
   <!-- FLUID ORGANIC MOTION LIVE BACKGROUND                     -->
   <!-- ======================================================== -->
   <div class="fluid-bg-canvas" id="fluidCanvasBg">
@@ -27,11 +28,11 @@
   <!-- ======================================================== -->
   <!-- 1. FULL-WIDTH CHROME BOOKMARKS BAR (Default Chrome Style)-->
   <!-- ======================================================== -->
-  <header class="w-full bg-[#03060c]/90 dark:bg-[#03060c]/90 backdrop-blur-md border-b border-white/[0.08] select-none z-30 px-3 h-9 min-h-[36px] max-h-[36px] flex items-center justify-between text-xs relative overflow-visible" id="bookmarksBarHeader">
+    <header class="w-full backdrop-blur-md select-none z-30 px-3 h-9 min-h-[36px] max-h-[36px] flex items-center justify-between text-xs relative overflow-visible" id="bookmarksBarHeader">
     <div class="flex items-center space-x-1.5 overflow-visible py-0.5">
-      <!-- Chrome 2x2 Apps & Bookmarks Options Menu -->
-      <div class="relative shrink-0">
-        <button type="button" id="chromeAppsBtn" class="flex items-center space-x-1.5 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all shrink-0 cursor-pointer" title="Bookmarks & Apps Options">
+      <!-- Chrome 2x2 Apps Grid Icon (Google Apps Only) -->
+      <div class="relative folder-container">
+        <button type="button" id="chromeAppsBtn" class="flex items-center space-x-1.5 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all shrink-0 cursor-pointer" title="Google Apps" aria-label="Google Apps" aria-haspopup="true">
           <svg class="w-3.5 h-3.5 opacity-90" viewBox="0 0 16 16" fill="currentColor">
             <rect x="1" y="1" width="6" height="6" rx="1"></rect>
             <rect x="9" y="1" width="6" height="6" rx="1"></rect>
@@ -39,43 +40,164 @@
             <rect x="9" y="9" width="6" height="6" rx="1"></rect>
           </svg>
         </button>
+        <div class="folder-dropdown google-apps-dropdown absolute top-full left-0 mt-1 glass-card rounded-2xl shadow-2xl" id="dropdown-chrome-apps" style="display: none;">
+          <div class="grid grid-cols-3 gap-2">
+            <!-- 1. Google Search -->
+            <a href="https://www.google.com" target="_blank" class="google-app-item" title="Google Search">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Google</span>
+            </a>
 
-        <!-- Bookmarks & Apps Dropdown -->
-        <div id="chromeAppsDropdown" class="hidden absolute top-full left-0 mt-1 w-64 glass-card rounded-2xl p-2.5 z-50 shadow-2xl text-xs space-y-1">
-          <div class="px-3 py-1 text-[10px] font-bold text-[#83F9FF] uppercase tracking-wider">Bookmarks Bar Options</div>
-          <button type="button" id="dropdownAllBookmarksBtn" class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors text-left">
-            <span class="text-sm">📁</span>
-            <div>
-              <div class="font-medium text-xs">All Bookmarks</div>
-              <div class="text-[10px] text-slate-400">Open Chrome Bookmarks Manager</div>
-            </div>
-          </button>
-          <button type="button" id="dropdownSyncBookmarksBtn" class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors text-left">
-            <span class="text-sm">🔄</span>
-            <div>
-              <div class="font-medium text-xs">Sync & Import Bookmarks</div>
-              <div class="text-[10px] text-slate-400">Live API sync or upload file</div>
-            </div>
-          </button>
+            <!-- 2. Gmail -->
+            <a href="https://mail.google.com" target="_blank" class="google-app-item" title="Gmail">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M2 5v14c0 .55.45 1 1 1h3V10.27L12 14.5l6-4.23V20h3c.55 0 1-.45 1-1V5c0-.82-.93-1.3-1.6-.82L12 9.5 3.6 4.18C2.93 3.7 2 4.18 2 5z"/>
+                  <path fill="#34A853" d="M18 20h3c.55 0 1-.45 1-1v-8.5l-4 3V20z"/>
+                  <path fill="#EA4335" d="M2 9.5V19c0 .55.45 1 1 1h3v-6.5l-4-3z"/>
+                  <path fill="#FBBC05" d="M18 10.5l4-3V5c0-.82-.93-1.3-1.6-.82L12 9.5l6 1z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Gmail</span>
+            </a>
 
-          <div class="my-1 border-t border-white/10"></div>
-          <div class="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Quick Apps</div>
-          <a href="https://chromewebstore.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
-            <span class="text-sm">🛍️</span>
-            <span class="text-xs">Chrome Web Store</span>
-          </a>
-          <a href="https://mail.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
-            <span class="text-sm">✉️</span>
-            <span class="text-xs">Gmail</span>
-          </a>
-          <a href="https://drive.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
-            <span class="text-sm">📂</span>
-            <span class="text-xs">Google Drive</span>
-          </a>
-          <a href="https://docs.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
-            <span class="text-sm">📄</span>
-            <span class="text-xs">Google Docs</span>
-          </a>
+            <!-- 3. Google Drive -->
+            <a href="https://drive.google.com" target="_blank" class="google-app-item" title="Google Drive">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#FFC107" d="M8.05 3.5h7.9l6.55 11.35h-7.9z"/>
+                  <path fill="#0066DA" d="M14.6 14.85l-4.15 7.15H2.55l4.15-7.15z"/>
+                  <path fill="#00AC47" d="M2.55 22l6.55-11.35 4.15 7.15-6.55 4.2z"/>
+                  <path fill="#EA4335" d="M14.6 14.85h7.9l-4.15 7.15h-7.9z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Drive</span>
+            </a>
+
+            <!-- 4. Google Docs -->
+            <a href="https://docs.google.com" target="_blank" class="google-app-item" title="Google Docs">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <path fill="#A1C2FA" d="M14 2v6h6"/>
+                  <path fill="#FFFFFF" d="M7 13h10v1.5H7zm0 3h10v1.5H7zm0-6h5v1.5H7z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Docs</span>
+            </a>
+
+            <!-- 5. Google Sheets -->
+            <a href="https://sheets.google.com" target="_blank" class="google-app-item" title="Google Sheets">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#0F9D58" d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <path fill="#87CEAC" d="M14 2v6h6"/>
+                  <path fill="#FFFFFF" d="M7 11h10v8H7zm2 2v1.5h2.5V13zm0 3v1.5h2.5V16zm4-3v1.5h2.5V13zm0 3v1.5h2.5V16z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Sheets</span>
+            </a>
+
+            <!-- 6. Google Slides -->
+            <a href="https://slides.google.com" target="_blank" class="google-app-item" title="Google Slides">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#F4B400" d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <path fill="#FBE7A1" d="M14 2v6h6"/>
+                  <rect x="7" y="11" width="10" height="7" rx="1" fill="#FFFFFF"/>
+                  <rect x="8.5" y="12.5" width="7" height="4" fill="#F4B400"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Slides</span>
+            </a>
+
+            <!-- 7. Google Chat -->
+            <a href="https://chat.google.com" target="_blank" class="google-app-item" title="Google Chat">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <rect width="24" height="24" rx="5" fill="#00AC47"/>
+                  <path fill="#FFFFFF" d="M6 7.5h12c.83 0 1.5.67 1.5 1.5v7c0 .83-.67 1.5-1.5 1.5H8.5L6 19.5V9c0-.83.67-1.5 1.5-1.5z"/>
+                  <path fill="#00832D" d="M6 7.5v12l2.5-2.5H18c.83 0 1.5-.67 1.5-1.5V9c0-.83-.67-1.5-1.5-1.5H6z" opacity="0.15"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Chat</span>
+            </a>
+
+            <!-- 8. Google Calendar -->
+            <a href="https://calendar.google.com" target="_blank" class="google-app-item" title="Google Calendar">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="17" rx="3" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="0.5"/>
+                  <path d="M3 7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3H3V7z" fill="#4285F4"/>
+                  <rect x="7" y="2" width="2" height="4" rx="1" fill="#1967D2"/>
+                  <rect x="15" y="2" width="2" height="4" rx="1" fill="#1967D2"/>
+                  <text x="12" y="18" font-size="8.5" font-weight="700" text-anchor="middle" fill="#1967D2" font-family="system-ui, sans-serif">31</text>
+                </svg>
+              </div>
+              <span class="google-app-label">Calendar</span>
+            </a>
+
+            <!-- 9. Google Meet -->
+            <a href="https://meet.google.com" target="_blank" class="google-app-item" title="Google Meet">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#00832D" d="M15.5 10.5V7a1 1 0 0 0-1-1h-11a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-3.5l5 4V6.5l-5 4z"/>
+                  <path fill="#00AC47" d="M2.5 7v10h11V7h-11z"/>
+                  <path fill="#EA4335" d="M13.5 17h1a1 1 0 0 0 1-1v-2l-2-1v4z"/>
+                  <path fill="#2684FC" d="M13.5 7h1a1 1 0 0 1 1 1v2l-2 1V7z"/>
+                  <path fill="#FFBA00" d="M15.5 10v4l5 3.5V6.5L15.5 10z"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Meet</span>
+            </a>
+
+            <!-- 10. YouTube -->
+            <a href="https://youtube.com" target="_blank" class="google-app-item" title="YouTube">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#FF0000" d="M21.58 7.19a2.5 2.5 0 0 0-1.76-1.77C18.26 5 12 5 12 5s-6.26 0-7.82.42A2.5 2.5 0 0 0 2.42 7.2 26.3 26.3 0 0 0 2 12a26.3 26.3 0 0 0 .42 4.81 2.5 2.5 0 0 0 1.76 1.77C5.74 19 12 19 12 19s6.26 0 7.82-.42a2.5 2.5 0 0 0 1.76-1.77A26.3 26.3 0 0 0 22 12a26.3 26.3 0 0 0-.42-4.81z"/>
+                  <polygon points="10 15 15.5 12 10 9" fill="#FFFFFF"/>
+                </svg>
+              </div>
+              <span class="google-app-label">YouTube</span>
+            </a>
+
+            <!-- 11. Google Maps -->
+            <a href="https://maps.google.com" target="_blank" class="google-app-item" title="Google Maps">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="3" fill="#FFFFFF"/>
+                  <path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 1.74.5 3.37 1.41 4.84L12 6.5l5.59 7.34C18.5 12.37 19 10.74 19 9c0-3.87-3.13-7-7-7z"/>
+                  <path fill="#FBBC05" d="M12 6.5l-5.59 7.34C7.54 15.63 9.4 17.85 12 22c2.6-4.15 4.46-6.37 5.59-8.16L12 6.5z"/>
+                  <path fill="#34A853" d="M12 22s-2.15-3.35-3.5-5.5L12 14l3.5 2.5C14.15 18.65 12 22 12 22z"/>
+                  <circle cx="12" cy="9" r="2.5" fill="#1A73E8"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Maps</span>
+            </a>
+
+            <!-- 12. Google Photos -->
+            <a href="https://photos.google.com" target="_blank" class="google-app-item" title="Google Photos">
+              <div class="google-app-icon">
+                <svg class="w-7 h-7" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 7.5a4.5 4.5 0 0 1 4.5 4.5H12V7.5z"/>
+                  <path fill="#4285F4" d="M16.5 12a4.5 4.5 0 0 1-4.5 4.5V12h4.5z"/>
+                  <path fill="#34A853" d="M12 16.5A4.5 4.5 0 0 1 7.5 12H12v4.5z"/>
+                  <path fill="#FBBC05" d="M7.5 12A4.5 4.5 0 0 1 12 7.5V12H7.5z"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#FFFFFF"/>
+                </svg>
+              </div>
+              <span class="google-app-label">Photos</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -86,10 +208,7 @@
         
         <!-- Folder 1: AI Tools -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="ai">
-            <span>📁</span>
-            <span>🤖</span>
-            <span>AI Tools</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="ai"><span>🤖 AI Tools</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-ai">
             <a href="https://chatgpt.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -113,10 +232,7 @@
 
         <!-- Folder 2: Inspiration -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="inspiration">
-            <span>📁</span>
-            <span>🎨</span>
-            <span>Inspiration</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="inspiration"><span>🎨 Inspiration</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-inspiration">
             <a href="https://dribbble.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -140,10 +256,7 @@
 
         <!-- Folder 3: Workspace -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="workspace">
-            <span>📁</span>
-            <span>💼</span>
-            <span>Workspace</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="workspace"><span>💼 Workspace</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-workspace">
             <a href="https://mail.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -167,10 +280,7 @@
 
         <!-- Folder 4: Payment tracker -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="payment">
-            <span>📁</span>
-            <span>💸</span>
-            <span>Payment tracker</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="payment"><span>💸 Payment tracker</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-payment">
             <a href="https://stripe.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -190,10 +300,7 @@
 
         <!-- Folder 5: Tools -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="tools">
-            <span>📁</span>
-            <span>🔥</span>
-            <span>Tools</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="tools"><span>🔥 Tools</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-tools">
             <a href="https://figma.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -213,10 +320,7 @@
 
         <!-- Folder 6: social media -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="social">
-            <span>📁</span>
-            <span>📱</span>
-            <span>social media</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="social"><span>📱 social media</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-social">
             <a href="https://twitter.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -240,10 +344,7 @@
 
         <!-- Folder 7: Digital marketing -->
         <div class="relative folder-container">
-          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="marketing">
-            <span>📁</span>
-            <span>📊</span>
-            <span>Digital marketing</span>
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn text-[12px] font-normal" data-folder="marketing"><span>📊 Digital marketing</span>
           </button>
           <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-marketing">
             <a href="https://analytics.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
@@ -264,32 +365,26 @@
       </nav>
     </div>
 
-    </header>
+    <!-- Right: All Bookmarks button (default Chrome style, no import button) -->
+    <div class="flex items-center space-x-1.5 shrink-0">
+      <button type="button" id="allBookmarksBtn" class="flex items-center space-x-1.5 text-slate-300 hover:text-white hover:bg-white/[0.08] px-2 py-1 rounded text-[12px] font-normal transition-all cursor-pointer" title="Open Chrome Bookmarks Manager">
+        <span>📁</span>
+        <span>All Bookmarks</span>
+      </button>
+    </div>
+  </header>
 
   <!-- ======================================================== -->
   <!-- 2. MAIN CANVAS CONTAINER & RIGHT-SIDE MENU               -->
   <!-- ======================================================== -->
-  <div class="relative z-10 flex flex-col flex-grow w-full max-w-[1360px] mx-auto px-6 md:px-10 pb-8">
+  <div class="relative z-10 flex flex-col flex-grow w-full max-w-[1360px] mx-auto px-6 md:px-10 pb-24 md:pb-32" style="padding-bottom: 6rem !important;">
 
     <!-- Right-Side Canvas Menu (Same as default Chrome) -->
-        <div class="w-full flex items-center justify-between pt-3 pb-2 select-none z-20" id="canvasTopControls">
-      <!-- Left: Good Wish Message with Liquid Glass Effect & Safe Margin -->
-      <div id="greetingWidget" class="flex items-center space-x-3 px-4 py-2 rounded-2xl glass-card backdrop-blur-xl border border-white/10 shadow-lg text-xs transition-all duration-300 hover:border-[#83F9FF]/40 group max-w-sm cursor-pointer select-none" title="Click to refresh wish">
-        <div id="greetingIcon" class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#1B54FF] to-[#83F9FF] flex items-center justify-center text-white text-xs shadow-[0_0_12px_rgba(131,249,255,0.4)] shrink-0 transition-transform group-hover:scale-110">
-          ✨
-        </div>
-        <div class="flex flex-col min-w-0">
-          <div class="flex items-center space-x-1.5">
-            <span id="greetingTitle" class="font-semibold text-white tracking-wide text-[13px]">Good morning</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#83F9FF] animate-pulse"></span>
-          </div>
-          <span id="greetingWish" class="text-[11px] text-slate-300/90 font-normal truncate max-w-[220px] md:max-w-[280px]">Wishing you an inspiring and productive day ahead.</span>
-        </div>
-      </div>
+                <div class="w-full flex items-center justify-end select-none z-20" style="padding-top: 28px; padding-right: 36px; padding-bottom: 8px;" id="canvasTopControls">
       <div class="flex items-center">
         <button 
           type="button" 
-          id="themeToggleBtn" 
+          id="themeToggleBtn" style="width: 80px !important; height: 32px !important; min-width: 80px !important; min-height: 32px !important; overflow: hidden !important;" 
           class="relative w-20 h-8 rounded-full border border-white/40 shadow-[0_0_12px_rgba(255,255,255,0.18)] overflow-hidden cursor-pointer select-none transition-all duration-300 hover:scale-105 active:scale-95" 
           title="Toggle Day/Night Mode"
           aria-label="Toggle theme"
@@ -346,99 +441,136 @@
         <div id="dateDisplay" class="text-sm md:text-base font-normal text-slate-400 mt-3 tracking-wide">Wednesday, October 21, 2026</div>
       </div>
 
-      <!-- Glassmorphic Command & Search Bar -->
-      <div class="w-full max-w-2xl px-4 mb-11 relative">
-        <form id="searchForm" class="glass-search-box relative flex items-center w-full h-14 px-5 rounded-2xl">
+      <!-- Unified Google Chrome Search Box (Expands into Unified Card matching reference image) -->
+      <div class="w-full max-w-2xl px-4 mb-8 md:mb-10 relative z-30" id="searchPanelWrapper">
+        <div id="searchUnifiedCard" class="glass-search-box relative w-full rounded-[28px] transition-all duration-300">
           
-          <!-- Search Magnifying Glass Icon -->
-          <span class="text-slate-400 mr-3 shrink-0 flex items-center">
-            <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </span>
-
-          <!-- Search Input with Command Placeholder -->
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Type a command or search..." 
-            autocomplete="off"
-            class="w-full bg-transparent border-none outline-none text-slate-100 placeholder-slate-400 text-sm md:text-base py-2.5 font-normal"
-          />
-
-          <!-- Right Action Buttons inside Search Bar -->
-          <div class="flex items-center space-x-2.5 ml-3 shrink-0">
-
-            <!-- Voice Search (Microphone) -->
-            <button type="button" id="micBtn" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors" title="Voice Search">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+          <!-- Primary Search Input Form Row -->
+          <form id="searchForm" class="flex items-center w-full h-14 pl-5 pr-3.5 relative" style="padding-left: 22px !important; padding-right: 14px !important;" autocomplete="off">
+            
+            <!-- Search Magnifying Glass Icon -->
+            <span class="text-slate-300 mr-3.5 shrink-0 flex items-center justify-center w-6 h-6 cursor-pointer" style="margin-right: 14px !important;" id="searchIconSpan">
+              <svg class="w-5 h-5 opacity-90 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
-            </button>
+            </span>
 
-            <!-- Google Lens / Camera -->
-            <button type="button" id="lensBtn" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors" title="Search by image">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-            </button>
+            <!-- Search Input -->
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Ask Google or type a URL" 
+              autocomplete="off"
+              class="flex-1 min-w-0 bg-transparent border-none outline-none text-slate-100 placeholder-slate-400 text-sm md:text-base py-2.5 font-normal cursor-text"
+            />
 
-            <!-- AI Mode Pill Button (Arounda Brand Electric Cyan & Cobalt) -->
-            <button type="button" id="aiModeBtn" class="flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1B54FF]/25 hover:bg-[#1B54FF]/45 text-[#83F9FF] border border-[#83F9FF]/35 text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow-[0_0_14px_rgba(131,249,255,0.35)]">
-              <svg class="w-3.5 h-3.5 text-[#83F9FF]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z"></path>
-              </svg>
-              <span>AI Mode</span>
-            </button>
+            <!-- Right Action Buttons inside Search Bar -->
+            <div class="search-action-buttons flex items-center space-x-1.5 ml-2.5 shrink-0" style="gap: 6px !important; margin-left: 10px !important;">
 
-          </div>
-        </form>
+              <!-- Voice Search (Google 4-Color Microphone) -->
+              <button type="button" id="micBtn" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10 active:bg-white/15 transition-all cursor-pointer relative" title="Search by voice" aria-label="Search by voice">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="#4285F4"/>
+                  <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" fill="#34A853"/>
+                  <path d="M12 16c-1.38 0-2.5-.56-3.29-1.46l-1.42 1.42C8.38 17.06 10.07 18 12 18s3.62-.94 4.71-2.04l-1.42-1.42C14.5 15.44 13.38 16 12 16z" fill="#EA4335"/>
+                  <path d="M12 18c-1.66 0-3-1.34-3-3h-2c0 2.42 1.72 4.44 4 4.9V21h2v-1.1c.35-.07.69-.17 1.01-.3l-.7-1.4c-.1.03-.2.06-.31.07V18z" fill="#FBBC05"/>
+                </svg>
+                <span id="micPulse" class="hidden absolute inset-0 rounded-full bg-blue-500/20 border border-blue-400 animate-ping pointer-events-none"></span>
+              </button>
 
-        <!-- Command Palette Suggestions Dropdown -->
-        <div id="commandDropdown" class="command-dropdown hidden absolute top-full left-4 right-4 mt-2 rounded-2xl p-3 z-40 text-xs shadow-2xl">
-          
-          <div class="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Quick Jump</div>
-          <div class="space-y-1 my-1">
-            <a href="https://calendar.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
-              <div class="flex items-center space-x-2.5">
-                <span class="text-base">📅</span>
-                <span>Google Calendar</span>
-              </div>
-              <span class="text-[10px] text-slate-400 font-mono">cal ↗</span>
-            </a>
-            <a href="https://mail.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
-              <div class="flex items-center space-x-2.5">
-                <span class="text-base">✉️</span>
-                <span>Gmail</span>
-              </div>
-              <span class="text-[10px] text-slate-400 font-mono">mail ↗</span>
-            </a>
-            <a href="https://youtube.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
-              <div class="flex items-center space-x-2.5">
-                <span class="text-base">▶️</span>
-                <span>YouTube</span>
-              </div>
-              <span class="text-[10px] text-slate-400 font-mono">yt ↗</span>
-            </a>
+              <!-- Google Lens Button (Opens Dropdown Directly in Place!) -->
+              <button type="button" id="lensBtn" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10 active:bg-white/15 transition-all cursor-pointer" title="Search by image (Google Lens)" aria-label="Search by image">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="3" fill="#4285F4"/>
+                  <path d="M5 9V7a2 2 0 012-2h2" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M19 9V7a2 2 0 00-2-2h-2" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M19 15v2a2 2 0 01-2 2h-2" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M5 15v2a2 2 0 002 2h2" stroke="#FBBC05" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <!-- AI Mode Pill Button -->
+              <button type="button" id="aiModeBtn" class="flex items-center space-x-1.5 px-3.5 py-1.5 ml-1 rounded-full bg-[#1B54FF]/25 hover:bg-[#1B54FF]/45 text-[#83F9FF] border border-[#83F9FF]/35 text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow-[0_0_14px_rgba(131,249,255,0.35)] shrink-0">
+                <svg class="w-3.5 h-3.5 text-[#83F9FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>AI Mode</span>
+              </button>
+
+            </div>
+          </form>
+
+          <!-- 1. Search History Dropdown Section (Smooth Dropdown Animation) -->
+          <div id="searchHistorySection" class="dropdown-panel border-t border-white/[0.08] px-2 transition-all">
+            <div id="searchHistoryList" class="space-y-0.5 max-h-80 overflow-y-auto custom-scrollbar pt-1.5">
+              <!-- Rendered history items -->
+            </div>
+            <div id="searchDropdownFooter" class="py-2.5 px-4 flex justify-between items-center text-[11px] text-slate-400 border-t border-white/[0.05] mt-1">
+              <span id="searchFooterStatus" class="opacity-70 flex items-center space-x-1.5">
+                <span>🕒</span>
+                <span>Recent searches</span>
+              </span>
+              <button type="button" id="clearSearchHistoryBtn" class="hover:text-red-400 transition-colors cursor-pointer font-medium">Clear history</button>
+            </div>
           </div>
 
-          <div class="px-3 pt-2.5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-t border-white/[0.08] mt-2">Quick Apps</div>
-          <div class="space-y-1 my-1">
-            <a href="https://gemini.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
-              <div class="flex items-center space-x-2.5">
-                <span class="text-base">✨</span>
-                <span>Google Gemini</span>
+          <!-- 2. Google Lens Dropdown Section (Matches User's Reference Image image_e80c9b.png with Arounda Glass Design!) -->
+          <div id="googleLensDropdownSection" class="dropdown-panel border-t border-white/[0.08] transition-all">
+            
+            <!-- Lens Header with Title & Close ✕ Button -->
+            <div class="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
+              <div class="flex items-center space-x-2 text-slate-200 text-xs md:text-sm font-medium">
+                <svg class="w-4 h-4 text-[#83F9FF]" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="3" fill="#4285F4"/>
+                  <path d="M5 9V7a2 2 0 012-2h2" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M19 9V7a2 2 0 00-2-2h-2" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M19 15v2a2 2 0 01-2 2h-2" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M5 15v2a2 2 0 002 2h2" stroke="#FBBC05" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Search any image with Lens</span>
               </div>
-              <span class="text-[10px] text-slate-400 font-mono">⌘G</span>
-            </a>
-            <a href="https://chatgpt.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
-              <div class="flex items-center space-x-2.5">
-                <span class="text-base">🤖</span>
-                <span>ChatGPT</span>
+              <button type="button" id="closeLensDropdownBtn" class="w-7 h-7 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer text-xs" title="Close Lens">✕</button>
+            </div>
+
+            <div class="p-5 space-y-4 text-xs">
+              <!-- Drag and Drop Box matching Google Lens reference -->
+              <input type="file" id="lensDropdownFileInput" accept="image/*" class="hidden">
+              <div id="lensDropdownDropZone" class="p-7 rounded-2xl border-2 border-dashed border-white/20 hover:border-[#83F9FF]/80 bg-white/[0.03] hover:bg-white/[0.06] flex flex-col items-center justify-center text-center cursor-pointer transition-all">
+                <div class="w-14 h-14 rounded-2xl bg-[#1B54FF]/20 border border-[#83F9FF]/30 flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(27,84,255,0.25)]">
+                  <svg class="w-7 h-7 text-[#83F9FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="font-medium text-slate-200 text-xs md:text-sm">
+                  Drag an image here or <span class="text-[#83F9FF] font-semibold underline hover:text-white">upload a file</span>
+                </div>
               </div>
-              <span class="text-[10px] text-slate-400 font-mono">⌘C</span>
-            </a>
+
+              <!-- OR Separator Divider -->
+              <div class="relative flex items-center my-1">
+                <div class="flex-grow border-t border-white/10"></div>
+                <span class="mx-3 text-slate-400 text-[10px] uppercase font-bold tracking-wider">OR</span>
+                <div class="flex-grow border-t border-white/10"></div>
+              </div>
+
+              <!-- Paste image link search form -->
+              <form id="lensDropdownUrlForm" class="flex items-center space-x-2">
+                <input 
+                  type="url" 
+                  id="lensDropdownUrlInput" 
+                  placeholder="Paste image link" 
+                  class="flex-1 bg-white/[0.06] border border-white/15 rounded-xl px-4 py-2.5 text-white placeholder-slate-400 outline-none focus:border-[#83F9FF] text-xs font-normal"
+                />
+                <button 
+                  type="submit" 
+                  class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1B54FF] to-[#2563EB] hover:from-[#2563EB] hover:to-[#83F9FF] text-white text-xs font-semibold shadow-md transition-all shrink-0 cursor-pointer"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+
           </div>
 
         </div>
@@ -460,10 +592,16 @@
             <button type="button" id="askChatGPTBtn" class="px-3 py-1.5 rounded-xl bg-[#1B54FF]/50 hover:bg-[#1B54FF]/80 text-white font-medium transition-colors">Ask ChatGPT</button>
           </div>
         </div>
+      </div>
 
-      <!-- Customizable, Draggable, Reorderable Chrome Shortcuts Grid with Real Site Logos -->
-      <div class="w-full max-w-4xl px-4 flex items-start justify-center flex-wrap gap-5 md:gap-7 select-none mt-2" id="shortcutsContainer">
-        <!-- Rendered dynamically with real logos, drag-and-drop reordering, edit, and move options -->
+      <!-- Customizable Chrome Shortcuts: Primary Row (6 Items + Show More) -->
+      <div class="w-full max-w-4xl px-4 flex items-start justify-center flex-wrap gap-8 md:gap-10 select-none mt-8 md:mt-12" id="shortcutsContainer">
+        <!-- Rendered dynamically: Primary 6 shortcuts + Show more button -->
+      </div>
+
+      <!-- Extended Shortcuts Row (revealed on Show More) -->
+      <div id="extendedShortcutsRow" class="w-full max-w-4xl px-4 items-start justify-center flex-wrap gap-8 md:gap-10 select-none" data-expanded="false">
+        <!-- Rendered dynamically: Remaining shortcuts + Add shortcut button -->
       </div>
 
     </main>
@@ -563,7 +701,10 @@
   </div>
 
 
-  <!-- Toast Notification -->
+  
+  </div>
+
+    <!-- Toast Notification -->
   <div id="toastNotification" class="hidden fixed bottom-6 right-8 z-50 flex items-center space-x-2.5 px-4.5 py-3 rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-[#83F9FF]/40 text-white text-xs shadow-[0_0_20px_rgba(131,249,255,0.35)] animate-fadeIn">
     <span id="toastIcon">✨</span>
     <span id="toastMessage">Action completed</span>

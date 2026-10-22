@@ -510,29 +510,143 @@ svg {
   .md\:text-9xl { font-size: 8rem; line-height: 1; }
 }
 
+/* Missing Comprehensive Utilities */
+.w-20 { width: 5rem !important; }
+.w-40 { width: 10rem !important; }
+.w-px { width: 1px !important; }
+.w-0\.5 { width: 0.125rem !important; }
+.w-3\.5 { width: 0.875rem !important; }
+.w-4\.5 { width: 1.125rem !important; }
+.h-0\.5 { height: 0.125rem !important; }
+.h-2\.5 { height: 0.625rem !important; }
+.h-3\.5 { height: 0.875rem !important; }
+.h-4\.5 { height: 1.125rem !important; }
+.h-12 { height: 3rem !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-y-auto { overflow-y: auto !important; }
+.flex-grow { flex-grow: 1 !important; }
+.cursor-text { cursor: text !important; }
+.italic { font-style: italic !important; }
+.underline { text-decoration: underline !important; }
+.object-contain { object-fit: contain !important; }
+.rounded-sm { border-radius: 0.125rem !important; }
+
+/* Custom Colors & Borders */
+.text-\[\#83F9FF\] { color: #83F9FF !important; }
+.text-\[\#ffeb79\] { color: #ffeb79 !important; }
+.text-\[\#b3c5e8\] { color: #b3c5e8 !important; }
+.bg-\[\#ffeb79\] { background-color: #ffeb79 !important; }
+.bg-\[\#03060c\]\/90 { background-color: rgba(3, 6, 12, 0.9) !important; }
+.bg-\[\#1B54FF\]\/20 { background-color: rgba(27, 84, 255, 0.2) !important; }
+.bg-\[\#1B54FF\]\/25 { background-color: rgba(27, 84, 255, 0.25) !important; }
+.bg-\[\#1B54FF\]\/50 { background-color: rgba(27, 84, 255, 0.5) !important; }
+.bg-black\/60 { background-color: rgba(0, 0, 0, 0.6) !important; }
+.bg-black\/80 { background-color: rgba(0, 0, 0, 0.8) !important; }
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1) !important; }
+.bg-white\/\[0\.03\] { background-color: rgba(255, 255, 255, 0.03) !important; }
+.bg-white\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.06) !important; }
+.bg-white\/\[0\.08\] { background-color: rgba(255, 255, 255, 0.08) !important; }
+
+.border-\[\#83F9FF\]\/30 { border-color: rgba(131, 249, 255, 0.3) !important; }
+.border-\[\#83F9FF\]\/35 { border-color: rgba(131, 249, 255, 0.35) !important; }
+.border-\[\#83F9FF\]\/40 { border-color: rgba(131, 249, 255, 0.4) !important; }
+.border-white\/10 { border-color: rgba(255, 255, 255, 0.1) !important; }
+.border-white\/15 { border-color: rgba(255, 255, 255, 0.15) !important; }
+.border-white\/20 { border-color: rgba(255, 255, 255, 0.2) !important; }
+.border-white\/25 { border-color: rgba(255, 255, 255, 0.25) !important; }
+.border-white\/30 { border-color: rgba(255, 255, 255, 0.3) !important; }
+.border-white\/40 { border-color: rgba(255, 255, 255, 0.4) !important; }
+.border-white\/\[0\.05\] { border-color: rgba(255, 255, 255, 0.05) !important; }
+.border-white\/\[0\.06\] { border-color: rgba(255, 255, 255, 0.06) !important; }
+.border-white\/\[0\.08\] { border-color: rgba(255, 255, 255, 0.08) !important; }
+
+/* Positioning & Spacing */
+.space-x-1\.5 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.375rem !important; }
+.space-x-2\.5 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.625rem !important; }
+.space-x-3\.5 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.875rem !important; }
+.space-y-0\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.125rem !important; }
+.space-y-3\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.875rem !important; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+
+.right-2 { right: 0.5rem !important; }
+.right-3 { right: 0.75rem !important; }
+.right-6 { right: 1.5rem !important; }
+.right-8 { right: 2rem !important; }
+.right-9 { right: 2.25rem !important; }
+.top-1\.5 { top: 0.375rem !important; }
+.top-2 { top: 0.5rem !important; }
+.top-3 { top: 0.75rem !important; }
+
+.p-1\.5 { padding: 0.375rem !important; }
+.p-2\.5 { padding: 0.625rem !important; }
+.p-3\.5 { padding: 0.875rem !important; }
+.px-1\.5 { padding-left: 0.375rem !important; padding-right: 0.375rem !important; }
+.px-3\.5 { padding-left: 0.875rem !important; padding-right: 0.875rem !important; }
+.px-4\.5 { padding-left: 1.125rem !important; padding-right: 1.125rem !important; }
+.py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
+.py-1\.5 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+.py-2\.5 { padding-top: 0.625rem !important; padding-bottom: 0.625rem !important; }
+.py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+.text-\[10px\] { font-size: 10px !important; }
+.text-\[11px\] { font-size: 11px !important; }
+.text-\[12px\] { font-size: 12px !important; }
+.text-\[13px\] { font-size: 13px !important; }
+
+.max-w-\[76px\] { max-width: 76px !important; }
+.max-w-\[85px\] { max-width: 85px !important; }
+.max-w-\[1360px\] { max-width: 1360px !important; }
+.max-h-\[36px\] { max-height: 36px !important; }
+.min-h-\[36px\] { min-height: 36px !important; }
+
+.from-\[\#070b1a\] { background-image: linear-gradient(to right, #070b1a, #0d1636, #121d45) !important; }
+.from-\[\#4ba3e3\] { background-image: linear-gradient(to right, #4ba3e3, #74bbf3, #9dd2fa) !important; }
+
 
 /* Custom Project & Component Styles */
 
-    /* Custom Scrollbar */
+    /* Custom Sleek Scrollbar (Arounda Frosted Glass Aesthetic) */
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      scrollbar-gutter: stable;
+    }
+    html, body, #bodyRoot {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      scrollbar-width: thin !important; /* Firefox */
+      scrollbar-color: rgba(131, 249, 255, 0.35) transparent !important;
+    }
+    ::-webkit-scrollbar:horizontal {
+      display: none !important;
+      height: 0 !important;
+      width: 0 !important;
+    }
     ::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
+      width: 8px !important;
+      height: 8px !important;
     }
     ::-webkit-scrollbar-track {
-      background: transparent;
+      background: transparent !important;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.22) !important;
+      border-radius: 9999px !important;
+      border: 2px solid transparent !important;
+      background-clip: padding-box !important;
+      transition: background 0.2s ease !important;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(131, 249, 255, 0.6) !important;
     }
     .light ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.22) !important;
     }
     .light ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 0, 0, 0.28);
+      background: rgba(27, 84, 255, 0.6) !important;
     }
 
     /* ========================================================================== */
@@ -540,43 +654,43 @@ svg {
     /* Midnight obsidian on top flowing smoothly into luminous royal blue depths  */
     /* ========================================================================== */
     .fluid-bg-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse at 50% 0%, #080d1a 0%, #03050a 40%, #000000 100%);
-  transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 50% 0%, #080d1a 0%, #03050a 40%, #000000 100%);
+      transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-/* Ambient Deep Black Gradient Vignette Overlay */
-.fluid-bg-canvas::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 35%, transparent 20%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.94) 100%),
-              linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 20%, transparent 65%, #000000 100%);
-  pointer-events: none;
-}
+    /* Ambient Deep Black Gradient Vignette Overlay */
+    .fluid-bg-canvas::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 35%, transparent 20%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.94) 100%),
+                  linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 20%, transparent 65%, #000000 100%);
+      pointer-events: none;
+    }
 
-.light .fluid-bg-canvas {
-  background: radial-gradient(ellipse at 50% 15%, #f1f6ff 0%, #dce8fa 65%, #cadcf7 100%);
-}
+    .light .fluid-bg-canvas {
+      background: radial-gradient(ellipse at 50% 15%, #f1f6ff 0%, #dce8fa 65%, #cadcf7 100%);
+    }
 
-.light .fluid-bg-canvas::after {
-  display: none;
-}
+    .light .fluid-bg-canvas::after {
+      display: none;
+    }
 
-.fluid-wave {
-  position: absolute;
-  border-radius: 46% 54% 58% 42% / 44% 52% 48% 56%;
-  filter: blur(85px);
-  will-change: transform, opacity;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
+    .fluid-wave {
+      position: absolute;
+      border-radius: 46% 54% 58% 42% / 44% 52% 48% 56%;
+      filter: blur(85px);
+      will-change: transform, opacity;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
 
     .light .fluid-wave {
       mix-blend-mode: multiply;
@@ -584,53 +698,53 @@ svg {
     }
 
     /* Wave 1: Primary deep royal cobalt liquid bloom (#1B54FF) */
-.fluid-wave-1 {
-  width: 105vw;
-  height: 72vh;
-  bottom: -18vh;
-  left: -15vw;
-  background: radial-gradient(ellipse at center, rgba(27, 84, 255, 0.48) 0%, rgba(15, 45, 160, 0.32) 42%, rgba(0, 0, 0, 0) 74%);
-  animation: fluidUndulate1 26s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+    .fluid-wave-1 {
+      width: 105vw;
+      height: 72vh;
+      bottom: -18vh;
+      left: -15vw;
+      background: radial-gradient(ellipse at center, rgba(27, 84, 255, 0.48) 0%, rgba(15, 45, 160, 0.32) 42%, rgba(0, 0, 0, 0) 74%);
+      animation: fluidUndulate1 26s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
     }
 
     /* Wave 2: Electric Aqua & Cobalt undulating flow (#83F9FF & #1B54FF) */
-.fluid-wave-2 {
-  width: 92vw;
-  height: 64vh;
-  bottom: -14vh;
-  right: -16vw;
-  background: radial-gradient(ellipse at center, rgba(27, 84, 255, 0.45) 0%, rgba(131, 249, 255, 0.28) 38%, rgba(0, 0, 0, 0) 72%);
-  animation: fluidUndulate2 32s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+    .fluid-wave-2 {
+      width: 92vw;
+      height: 64vh;
+      bottom: -14vh;
+      right: -16vw;
+      background: radial-gradient(ellipse at center, rgba(27, 84, 255, 0.45) 0%, rgba(131, 249, 255, 0.28) 38%, rgba(0, 0, 0, 0) 72%);
+      animation: fluidUndulate2 32s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
     }
 
     /* Wave 3: Deep sapphire harmonic wave */
-.fluid-wave-3 {
-  width: 82vw;
-  height: 56vh;
-  bottom: -8vh;
-  left: 15vw;
-  background: radial-gradient(ellipse at center, rgba(12, 38, 140, 0.42) 0%, rgba(27, 84, 255, 0.22) 48%, rgba(0, 0, 0, 0) 75%);
-  animation: fluidUndulate3 24s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+    .fluid-wave-3 {
+      width: 82vw;
+      height: 56vh;
+      bottom: -8vh;
+      left: 15vw;
+      background: radial-gradient(ellipse at center, rgba(12, 38, 140, 0.42) 0%, rgba(27, 84, 255, 0.22) 48%, rgba(0, 0, 0, 0) 75%);
+      animation: fluidUndulate3 24s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
     }
 
     /* Wave 4: Radiant electric cyan crest highlight (#83F9FF) */
-.fluid-wave-4 {
-  width: 65vw;
-  height: 46vh;
-  bottom: 2vh;
-  left: 28vw;
-  background: radial-gradient(ellipse at center, rgba(131, 249, 255, 0.24) 0%, rgba(27, 84, 255, 0.14) 45%, rgba(0, 0, 0, 0) 72%);
-  animation: fluidUndulate4 28s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+    .fluid-wave-4 {
+      width: 65vw;
+      height: 46vh;
+      bottom: 2vh;
+      left: 28vw;
+      background: radial-gradient(ellipse at center, rgba(131, 249, 255, 0.24) 0%, rgba(27, 84, 255, 0.14) 45%, rgba(0, 0, 0, 0) 72%);
+      animation: fluidUndulate4 28s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
     }
 
     /* Wave 5: Subtle warm solar gold shimmer (#FEB122) */
-.fluid-wave-5 {
-  width: 50vw;
-  height: 38vh;
-  bottom: 6vh;
-  right: 18vw;
-  background: radial-gradient(ellipse at center, rgba(254, 177, 34, 0.14) 0%, rgba(27, 84, 255, 0.08) 45%, rgba(0, 0, 0, 0) 70%);
-  animation: fluidUndulate5 34s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+    .fluid-wave-5 {
+      width: 50vw;
+      height: 38vh;
+      bottom: 6vh;
+      right: 18vw;
+      background: radial-gradient(ellipse at center, rgba(254, 177, 34, 0.14) 0%, rgba(27, 84, 255, 0.08) 45%, rgba(0, 0, 0, 0) 70%);
+      animation: fluidUndulate5 34s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
     }
 
     /* Light Theme Wave Color Multipliers */
@@ -901,20 +1015,35 @@ svg {
                   0 0 28px -4px rgba(99, 102, 241, 0.25);
     }
 
-    /* Circular timer stroke transition */
-    #timerProgressRing {
-      transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
-    }
 
-    /* Bookmark folder dropdown */
+
+    /* Bookmark folder dropdown: strictly position absolute so it never pushes the bookmarks bar down (Zero Scrollbar) */
+    .folder-container {
+      position: relative !important;
+    }
     .folder-dropdown {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      margin-top: 4px !important;
       display: none;
+      z-index: 100 !important;
       animation: menuFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      scrollbar-width: none !important; /* Firefox */
+      -ms-overflow-style: none !important; /* IE and Edge */
+      overflow-y: auto !important;
     }
     .folder-dropdown.active {
-      display: block;
+      display: block !important;
+    }
+    .folder-dropdown::-webkit-scrollbar,
+    .folder-dropdown *::-webkit-scrollbar,
+    .light .folder-dropdown::-webkit-scrollbar,
+    .light #bookmarksBarHeader .folder-dropdown::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
     }
     @keyframes menuFadeIn {
       from { opacity: 0; transform: translateY(-6px) scale(0.98); }
@@ -954,6 +1083,39 @@ svg {
       color: #475569 !important;
       font-weight: 500;
     }
+
+    
+    .light #bookmarksBarHeader {
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative !important;
+      z-index: 30 !important;
+      box-sizing: border-box !important;
+    }
+    .light #chromeAppsBtn {
+      color: #334155 !important;
+    }
+    .light #chromeAppsBtn:hover {
+      color: #0f172a !important;
+      background-color: rgba(0, 0, 0, 0.06) !important;
+    }
+    .light #gmailNavBtn,
+    .light #imagesNavBtn {
+      color: #334155 !important;
+    }
+    .light #gmailNavBtn:hover,
+    .light #imagesNavBtn:hover {
+      color: #0f172a !important;
+    }
+    .light #profileAvatarBtn .profile-avatar-inner {
+      background: #ffffff !important;
+      color: #1e293b !important;
+    }
+    
+    
+    
+    
+    
 
     /* Bookmarks Bar in Light Mode */
     .light #bookmarksBar {
@@ -998,12 +1160,12 @@ svg {
       border-bottom-color: rgba(0, 0, 0, 0.08) !important;
     }
 
-    /* Search Bar in Light Mode */
+    /* Search Bar in Light Mode (Pure White Typing Text) */
     .light #searchInput {
-      color: #0f172a !important;
+      color: #ffffff !important;
     }
     .light #searchInput::placeholder {
-      color: #64748b !important;
+      color: rgba(255, 255, 255, 0.65) !important;
     }
     .light #quickActionBtn,
     .light #micBtn,
@@ -1020,12 +1182,31 @@ svg {
       color: #334155 !important;
     }
     .light #aiModeBtn {
-      background-color: rgba(147, 51, 234, 0.12) !important;
-      border-color: rgba(147, 51, 234, 0.35) !important;
-      color: #6b21a8 !important;
+      background: rgba(27, 84, 255, 0.28) !important;
+      border: 1px solid rgba(131, 249, 255, 0.6) !important;
+      color: #83F9FF !important;
+      box-shadow: 0 0 12px rgba(131, 249, 255, 0.25) !important;
     }
     .light #aiModeBtn svg {
-      color: #7e22ce !important;
+      color: #83F9FF !important;
+    }
+    .light #aiModeBtn:hover {
+      background: rgba(27, 84, 255, 0.48) !important;
+      border-color: #83F9FF !important;
+      box-shadow: 0 0 16px rgba(131, 249, 255, 0.45) !important;
+      color: #ffffff !important;
+    }
+    .light #aiModeBtn:hover svg {
+      color: #ffffff !important;
+    }
+    .light #aiModeBtn.ai-mode-active {
+      background: #1B54FF !important;
+      border-color: #83F9FF !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 16px rgba(131, 249, 255, 0.45) !important;
+    }
+    .light #aiModeBtn.ai-mode-active svg {
+      color: #83F9FF !important;
     }
 
     /* Suggestions & Command Items in Light Mode */
@@ -1109,218 +1290,73 @@ svg {
       color: #7c3aed !important;
     }
 
-    /* Weather Widget in Light Mode */
-    .light #weatherTitle {
+    /* Modals in Light Mode */
+        .light #syncBookmarksModal > div {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 25px 60px -15px rgba(70, 95, 140, 0.25) !important;
+    }
+    .light #syncBookmarksModal h3 {
       color: #0f172a !important;
     }
-    .light section[aria-labelledby="weatherTitle"] .uppercase {
-      color: #475569 !important;
-    }
-    /* C/F Unit Toggle Button in Light Mode (Crisp Brand Royal Blue Accent) */
-    .light #weatherUnitToggleBtn {
-      background: rgba(27, 84, 255, 0.08) !important;
-      border: 1px solid rgba(27, 84, 255, 0.3) !important;
-      color: #1B54FF !important;
-      font-weight: 700 !important;
-    }
-    .light #weatherUnitToggleBtn:hover {
-      background: rgba(27, 84, 255, 0.18) !important;
-      border-color: #1B54FF !important;
-      color: #0c3dd1 !important;
-    }
-
-    /* + Event Button in Light Mode (Vibrant High-Contrast Cobalt Blue Pill) */
-    .light #addEventBtn {
-      background: #1B54FF !important;
-      color: #ffffff !important;
-      border: 1px solid #1B54FF !important;
-      box-shadow: 0 4px 14px rgba(27, 84, 255, 0.35) !important;
-      font-weight: 700 !important;
-    }
-    .light #addEventBtn:hover {
-      background: #1141d6 !important;
-      box-shadow: 0 6px 20px rgba(27, 84, 255, 0.5) !important;
-    }
-
-    /* Google Calendar Link Button in Light Mode */
-    .light #googleCalViewBtn,
-    .light #googleCalendarLinkBtn {
-      background: rgba(27, 84, 255, 0.08) !important;
-      border: 1px solid rgba(27, 84, 255, 0.25) !important;
-      color: #1B54FF !important;
-      font-weight: 600 !important;
-    }
-    .light #googleCalViewBtn:hover,
-    .light #googleCalendarLinkBtn:hover {
-      background: rgba(27, 84, 255, 0.16) !important;
-      color: #0c3dd1 !important;
-    }
-
-    /* Focus & Timer Buttons in Light Mode */
-    .light #startTimerBtn {
-      background: linear-gradient(135deg, #1B54FF 0%, #0066FF 100%) !important;
-      color: #ffffff !important;
-      box-shadow: 0 6px 18px rgba(27, 84, 255, 0.35) !important;
-      font-weight: 700 !important;
-    }
-    .light #startTimerBtn:hover {
-      background: linear-gradient(135deg, #1240c9 0%, #0052cc 100%) !important;
-      box-shadow: 0 8px 24px rgba(27, 84, 255, 0.48) !important;
-    }
-    .light #resetTimerBtn {
-      background: rgba(27, 84, 255, 0.08) !important;
-      border: 1px solid rgba(27, 84, 255, 0.25) !important;
-      color: #1B54FF !important;
-      font-weight: 700 !important;
-    }
-    .light #resetTimerBtn:hover {
-      background: rgba(27, 84, 255, 0.16) !important;
-      color: #0c3dd1 !important;
-    }
-    .light .focus-tab.bg-gradient-to-r {
-      background: #1B54FF !important;
-      color: #ffffff !important;
-      box-shadow: 0 2px 8px rgba(27, 84, 255, 0.3) !important;
-    }
-    .light #currentTemp {
+    .light #syncBookmarksModal .text-white {
       color: #0f172a !important;
     }
-    .light #weatherCondition {
+    .light #syncBookmarksModal .text-slate-100 {
+      color: #0f172a !important;
+    }
+    .light #syncBookmarksModal .text-slate-200 {
       color: #1e293b !important;
-      font-weight: 600;
     }
-    .light #weatherLocation {
-      color: #475569 !important;
-      font-weight: 500;
-    }
-    .light section[aria-labelledby="weatherTitle"] .grid > div span:first-child {
-      color: #475569 !important;
-      font-weight: 600;
-    }
-    .light section[aria-labelledby="weatherTitle"] .grid > div span:last-child {
-      color: #0f172a !important;
-      font-weight: 700;
-    }
-    .light section[aria-labelledby="weatherTitle"] .grid > div:hover {
-      background-color: rgba(0, 0, 0, 0.04) !important;
-    }
-    .light section[aria-labelledby="weatherTitle"] .border-t {
-      border-top-color: rgba(0, 0, 0, 0.08) !important;
-    }
-
-    /* Calendar Widget in Light Mode */
-    .light #calendarTitle {
-      color: #0f172a !important;
-    }
-    .light section[aria-labelledby="calendarTitle"] .border-b {
-      border-bottom-color: rgba(0, 0, 0, 0.08) !important;
-    }
-    .light #calendarDateSub {
-      color: #475569 !important;
-      font-weight: 600;
-    }
-    .light .event-row {
-      transition: background 0.2s ease;
-    }
-    .light .event-row:hover {
-      background: rgba(0, 0, 0, 0.04) !important;
-    }
-    .light .event-row .font-medium {
-      color: #475569 !important;
-      font-weight: 600;
-    }
-    .light .event-title {
-      color: #0f172a !important;
-      font-weight: 600;
-    }
-    .light .event-row .delete-event-btn {
-      color: #64748b !important;
-    }
-    .light .event-row .delete-event-btn:hover {
-      color: #ef4444 !important;
-    }
-
-    /* Focus / Pomodoro Widget in Light Mode */
-    .light #focusTitle {
-      color: #0f172a !important;
-    }
-    .light section[aria-labelledby="focusTitle"] .bg-black\/40 {
-      background: rgba(0, 0, 0, 0.06) !important;
-      border-color: rgba(0, 0, 0, 0.08) !important;
-    }
-    .light .focus-tab {
-      color: #475569 !important;
-      font-weight: 600;
-    }
-    .light .focus-tab:hover {
-      color: #0f172a !important;
-    }
-    .light .focus-tab.bg-gradient-to-r {
-      color: #ffffff !important;
-    }
-    .light #timerDisplay {
-      color: #0f172a !important;
-    }
-    .light #timerStatusLabel {
-      color: #6b21a8 !important;
-      font-weight: 700;
-    }
-    .light #timerProgressTrack {
-      stroke: rgba(0, 0, 0, 0.08) !important;
-    }
-    .light #resetTimerBtn {
-      background: rgba(0, 0, 0, 0.06) !important;
-      border-color: rgba(0, 0, 0, 0.1) !important;
+    .light #syncBookmarksModal .text-slate-300 {
       color: #334155 !important;
     }
-    .light #resetTimerBtn:hover {
-      color: #0f172a !important;
-      background: rgba(0, 0, 0, 0.1) !important;
+    .light #syncBookmarksModal .text-slate-400 {
+      color: #475569 !important;
     }
-
-    /* Modals in Light Mode */
-    .light #appsLauncherModal,
-    .light #addEventModal > div,
+    .light #syncBookmarksModal kbd {
+      background: rgba(0, 0, 0, 0.08) !important;
+      color: #0f172a !important;
+    }
+    .light #syncBookmarksBtn {
+      color: #334155 !important;
+    }
+    .light #syncBookmarksBtn:hover {
+      color: #0f172a !important;
+      background-color: rgba(0, 0, 0, 0.06) !important;
+    }
+    
+    
     .light #addShortcutModal > div {
       background: rgba(255, 255, 255, 0.98) !important;
       border: 1px solid rgba(0, 0, 0, 0.12) !important;
       box-shadow: 0 25px 60px -15px rgba(70, 95, 140, 0.25) !important;
     }
-    .light #appsLauncherModal span,
-    .light #addEventModal h3,
-    .light #addShortcutModal h3 {
-      color: #0f172a !important;
-    }
-    .light #appsLauncherModal a {
-      color: #1e293b !important;
-    }
-    .light #appsLauncherModal a:hover {
-      background: rgba(0, 0, 0, 0.05) !important;
-    }
-    .light #appsLauncherModal a span.font-medium {
-      color: #1e293b !important;
-    }
-    .light #addEventModal label,
+    
+    
+    
+    
+    
     .light #addShortcutModal label {
       color: #334155 !important;
       font-weight: 600;
     }
-    .light #addEventModal input,
+    
     .light #addShortcutModal input {
       background: #ffffff !important;
       border: 1px solid #cbd5e1 !important;
       color: #0f172a !important;
     }
-    .light #addEventModal input::placeholder,
+    
     .light #addShortcutModal input::placeholder {
       color: #94a3b8 !important;
     }
-    .light #cancelEventBtn,
+    
     .light #cancelShortcutBtn {
       background: #f1f5f9 !important;
       color: #334155 !important;
     }
-    .light #cancelEventBtn:hover,
+    
     .light #cancelShortcutBtn:hover {
       background: #e2e8f0 !important;
       color: #0f172a !important;
@@ -1333,266 +1369,1120 @@ svg {
       border-color: rgba(147, 51, 234, 0.35) !important;
       box-shadow: 0 10px 30px rgba(70, 95, 140, 0.18) !important;
     }
+
+    /* Chrome-Style Premium Circular White Tile Shortcuts & Drag-and-Drop Reordering */
+    .shortcut-tile {
+      position: relative;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .shortcut-tile.dragging {
+      opacity: 0.35;
+      transform: scale(0.9);
+    }
+    .shortcut-tile.drag-over {
+      outline: 2px dashed #83F9FF;
+      outline-offset: 4px;
+      border-radius: 1.25rem;
+    }
+    .shortcut-icon-circle {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .shortcut-tile:hover .shortcut-icon-circle {
+      transform: scale(1.1);
+      box-shadow: 0 0 28px rgba(27, 84, 255, 0.45), 0 12px 30px rgba(0, 0, 0, 0.45);
+      border-color: rgba(131, 249, 255, 0.5) !important;
+    }
+    .light .shortcut-icon-circle {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 6px 18px rgba(90, 115, 160, 0.16);
+    }
+    .light .shortcut-tile:hover .shortcut-icon-circle {
+      box-shadow: 0 10px 24px rgba(70, 95, 140, 0.25) !important;
+      border-color: rgba(27, 84, 255, 0.4) !important;
+    }
+    .light .shortcut-tile span.shortcut-label {
+      color: #1e293b !important;
+    }
+    .light .shortcut-tile:hover span.shortcut-label {
+      color: #000000 !important;
+    }
+    .shortcut-context-menu {
+      background: #1f1f1f !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+      animation: menuFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      min-width: 140px !important;
+      padding: 6px 0 !important;
+    }
+    .shortcut-context-menu button {
+      color: #e8eaed !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      padding: 8px 16px !important;
+      width: 100% !important;
+      text-align: left !important;
+      display: block !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: background-color 0.12s ease;
+    }
+    .shortcut-context-menu button:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: #ffffff !important;
+    }
+    .light .shortcut-context-menu {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+    }
+    .light .shortcut-context-menu button {
+      color: #1f1f1f !important;
+    }
+    .light .shortcut-context-menu button:hover {
+      background: rgba(0, 0, 0, 0.06) !important;
+      color: #000000 !important;
+    }
+
+
+    
+
+    /* Show More Shortcuts Button */
+    #showMoreShortcutsBtn > div {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #showMoreShortcutsBtn:hover > div {
+      border-color: #83F9FF;
+      background: rgba(27, 84, 255, 0.25);
+      box-shadow: 0 0 24px rgba(131, 249, 255, 0.35);
+      transform: scale(1.1);
+    }
+    .light #showMoreShortcutsBtn > div {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 6px 18px rgba(90, 115, 160, 0.16) !important;
+    }
+    .light #showMoreShortcutsBtn svg {
+      color: #334155 !important;
+    }
+    .light #showMoreShortcutsBtn:hover svg {
+      color: #0f172a !important;
+    }
+    .light #showMoreShortcutsBtn:hover > div {
+      border-color: rgba(27, 84, 255, 0.4) !important;
+      box-shadow: 0 10px 24px rgba(70, 95, 140, 0.25) !important;
+    }
+
+    /* Google Lens Modal in Light Mode */
+    .light #googleLensModal > div {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 25px 60px -15px rgba(70, 95, 140, 0.25) !important;
+    }
+    .light #googleLensModal h3 {
+      color: #0f172a !important;
+    }
+    .light #lensDropZone {
+      background: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    .light #lensDropZone:hover {
+      border-color: #3b82f6 !important;
+      background: #f1f5f9 !important;
+    }
+    .light #lensDropZone div {
+      color: #1e293b !important;
+    }
+    .light #lensUrlInput {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+
+    /* Best Position for Top Right Theme Toggle */
+    #canvasTopControls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 26px !important;
+      padding-bottom: 8px !important;
+      padding-right: 32px !important;
+    }
+    @media (min-width: 768px) {
+      #canvasTopControls {
+        padding-top: 30px !important;
+        padding-right: 40px !important;
+      }
+    }
   
-/* Additional canvas layout utilities */
-.top-3\.5 { top: 0.875rem; }
-.top-16 { top: 4rem; }
-.right-6 { right: 1.5rem; }
-.right-8 { right: 2rem; }
-.z-30 { z-index: 30; }
-.pr-36 { padding-right: 9rem; }
-.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
-.pt-3 { padding-top: 0.75rem; }
-@media (min-width: 768px) {
-  .md\:pr-40 { padding-right: 10rem; }
-  .md\:right-8 { right: 2rem; }
-}
+    /* Grand Proportions: Prominent Clock (Restored Previous Preferred Size) */
+    #clockDigits {
+      font-size: 6rem !important; /* 96px */
+      line-height: 1 !important;
+    }
+    @media (min-width: 768px) {
+      #clockDigits {
+        font-size: 8rem !important; /* 128px */
+        line-height: 1 !important;
+      }
+    }
+    #clockPeriod {
+      font-size: 1.5rem !important; /* 24px */
+    }
+    @media (min-width: 768px) {
+      #clockPeriod {
+        font-size: 1.875rem !important; /* 30px */
+      }
+    }
+    #dateDisplay {
+      font-size: 0.875rem !important; /* 14px */
+      margin-top: 0.75rem !important;
+    }
+    @media (min-width: 768px) {
+      #dateDisplay {
+        font-size: 1rem !important; /* 16px */
+      }
+    }
 
-/* Chrome Toolbar & Right Side Menu Utilities */
-.w-20 { width: 5rem; }
-.h-8 { height: 2rem; }
-.top-18 { top: 4.5rem; }
-.top-20 { top: 5rem; }
-.translate-x-12 { transform: translateX(3rem); }
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.hover\:underline:hover {
-  text-decoration-line: underline;
-}
-.p-\[2px\] {
-  padding: 2px;
-}
-.p-\[2\.5px\] {
-  padding: 2.5px;
-}
+    /* Refined Shortcuts Sizing & Spacing */
+    #shortcutsContainer,
+    #extendedShortcutsRow {
+      gap: 2rem !important; /* 32px */
+    }
+    @media (min-width: 768px) {
+      #shortcutsContainer,
+      #extendedShortcutsRow {
+        gap: 2.5rem !important; /* 40px */
+      }
+    }
+    .shortcut-tile {
+      width: 76px !important;
+    }
+    .shortcut-icon-circle {
+      width: 48px !important;
+      height: 48px !important;
+    }
+    @media (min-width: 768px) {
+      .shortcut-icon-circle {
+        width: 52px !important;
+        height: 52px !important;
+      }
+    }
+    #showMoreShortcutsBtn > div,
+    #openAddShortcutBtn {
+      width: 48px !important;
+      height: 48px !important;
+    }
+    @media (min-width: 768px) {
+      #showMoreShortcutsBtn > div,
+      #openAddShortcutBtn {
+        width: 52px !important;
+        height: 52px !important;
+      }
+    }
 
-/* Light Theme Chrome Toolbar & Profile Modal */
-.light #bookmarksBarHeader {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-.light #chromeAppsBtn {
-  color: #334155 !important;
-}
-.light #chromeAppsBtn:hover {
-  color: #0f172a !important;
-  background-color: rgba(0, 0, 0, 0.06) !important;
-}
-.light #gmailNavBtn,
-.light #imagesNavBtn {
-  color: #334155 !important;
-}
-.light #gmailNavBtn:hover,
-.light #imagesNavBtn:hover {
-  color: #0f172a !important;
-}
-.light #profileAvatarBtn .profile-avatar-inner {
-  background: #ffffff !important;
-  color: #1e293b !important;
-}
-.light #profileAccountModal {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  color: #0f172a !important;
-}
-.light #profileAccountModal .text-white {
-  color: #0f172a !important;
-}
-.light #profileAccountModal .text-slate-400 {
-  color: #475569 !important;
-}
-.light #profileAccountModal a {
-  color: #1e293b !important;
-}
-.light #profileAccountModal a:hover {
-  color: #0f172a !important;
-}
+    /* Liquid Glass Context Menu matching Arounda Theme */
+    .shortcut-context-menu {
+      position: absolute !important;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%),
+                  rgba(4, 8, 17, 0.85) !important;
+      backdrop-filter: blur(28px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-top-color: rgba(131, 249, 255, 0.45) !important;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.85),
+                  0 0 24px -2px rgba(131, 249, 255, 0.25),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.2) !important;
+      border-radius: 14px !important;
+      padding: 6px !important;
+      min-width: 154px !important;
+      z-index: 60 !important;
+      animation: menuFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .shortcut-context-menu button {
+      color: #e2e8f0 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      padding: 8px 12px !important;
+      border-radius: 10px !important;
+      width: 100% !important;
+      text-align: left !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+    }
+    .shortcut-context-menu button:hover {
+      background: rgba(27, 84, 255, 0.25) !important;
+      color: #83F9FF !important;
+      box-shadow: 0 0 12px rgba(131, 249, 255, 0.2) !important;
+    }
+    .shortcut-context-menu button.delete-btn:hover {
+      background: rgba(239, 68, 68, 0.2) !important;
+      color: #fca5a5 !important;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.2) !important;
+    }
+    .light .shortcut-context-menu {
+      background: rgba(255, 255, 255, 0.96) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      border-top-color: rgba(59, 130, 246, 0.4) !important;
+      box-shadow: 0 16px 36px -10px rgba(70, 95, 140, 0.22),
+                  0 0 20px -2px rgba(59, 130, 246, 0.15) !important;
+    }
+    .light .shortcut-context-menu button {
+      color: #1e293b !important;
+    }
+    .light .shortcut-context-menu button:hover {
+      background: rgba(59, 130, 246, 0.1) !important;
+      color: #1B54FF !important;
+    }
+    .light .shortcut-context-menu button.delete-btn:hover {
+      background: rgba(239, 68, 68, 0.1) !important;
+      color: #dc2626 !important;
+    }
+  
+    /* Ultra-Smooth Expandable Search Card & History */
+    .glass-search-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 100%),
+                  rgba(4, 8, 17, 0.65) !important;
+      backdrop-filter: blur(28px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-top-color: rgba(131, 249, 255, 0.45) !important;
+      box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.65),
+                  0 0 24px -2px rgba(131, 249, 255, 0.25),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.22) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .light .glass-search-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 246, 255, 0.94) 100%) !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 16px 36px -8px rgba(70, 95, 140, 0.2) !important;
+    }
+    #searchIconSpan svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+    .search-history-item {
+      padding: 10px 14px !important;
+      border-radius: 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+    }
+    .search-history-item:hover {
+      background: rgba(27, 84, 255, 0.25) !important;
+      color: #ffffff !important;
+    }
+    .light .search-history-item {
+      color: #1e293b !important;
+    }
+    .light .search-history-item:hover {
+      background: rgba(59, 130, 246, 0.1) !important;
+      color: #0f172a !important;
+    }
+    .light .search-history-item svg {
+      color: #64748b !important;
+    }
+    .light .search-history-item:hover svg {
+      color: #2563eb !important;
+    }
+  
+    /* ========================================================================== */
+    /* CLEAN & SMOOTH ACCORDION SEARCH CARD EXPANSION                             */
+    /* (Constant 28px rounded corners - Zero circle morphing, silky smooth glide) */
+    /* ========================================================================== */
+    #searchUnifiedCard {
+      border-radius: 28px !important;
+      transition: box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  background 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #searchUnifiedCard.expanded {
+      border-radius: 28px !important;
+      box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.78),
+                  0 0 36px -2px rgba(131, 249, 255, 0.4),
+                  0 0 60px 0 rgba(27, 84, 255, 0.25),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.32) !important;
+      border-color: rgba(131, 249, 255, 0.65) !important;
+    }
+    .light #searchUnifiedCard.expanded {
+      box-shadow: 0 22px 50px -10px rgba(70, 95, 140, 0.26),
+                  0 0 30px -2px rgba(99, 102, 241, 0.28),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(99, 102, 241, 0.6) !important;
+    }
 
-/* Modal & Drawer Specific Utilities */
-.w-\[350px\] { width: 350px; }
-.w-\[340px\] { width: 340px; }
-.max-h-\[520px\] { max-height: 520px; }
-.w-4\.5 { width: 1.125rem; }
-.h-4\.5 { height: 1.125rem; }
-.overflow-y-auto { overflow-y: auto; }
-.overflow-hidden { overflow: hidden; }
-.flex-grow { flex-grow: 1; }
-.shrink-0 { flex-shrink: 0; }
-.custom-scrollbar::-webkit-scrollbar { width: 4px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 9999px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.35); }
-.light .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); }
+    #searchIconSpan svg {
+      transition: color 0.25s ease, filter 0.25s ease !important;
+    }
+    #searchUnifiedCard.expanded #searchIconSpan svg {
+      color: #83F9FF !important;
+      filter: drop-shadow(0 0 6px rgba(131, 249, 255, 0.6)) !important;
+    }
+    .light #searchUnifiedCard.expanded #searchIconSpan svg {
+      color: #2563eb !important;
+      filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.3)) !important;
+    }
 
-/* Sync Bookmarks Modal */
-.light #syncBookmarksModal > div {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 25px 60px -15px rgba(70, 95, 140, 0.25) !important;
-}
-.light #syncBookmarksModal h3 {
-  color: #0f172a !important;
-}
-.light #syncBookmarksModal .text-white {
-  color: #0f172a !important;
-}
-.light #syncBookmarksModal .text-slate-100 {
-  color: #0f172a !important;
-}
-.light #syncBookmarksModal .text-slate-200 {
-  color: #1e293b !important;
-}
-.light #syncBookmarksModal .text-slate-300 {
-  color: #334155 !important;
-}
-.light #syncBookmarksModal .text-slate-400 {
-  color: #475569 !important;
-}
-.light #syncBookmarksModal kbd {
-  background: rgba(0, 0, 0, 0.08) !important;
-  color: #0f172a !important;
-}
-.light #syncBookmarksBtn {
-  color: #334155 !important;
-}
-.light #syncBookmarksBtn:hover {
-  color: #0f172a !important;
-  background-color: rgba(0, 0, 0, 0.06) !important;
-}
+    /* Silky Smooth Vertical Slide-Down (Constant 28px corners, zero distortion) */
+    #searchHistorySection {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-6px);
+      transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  padding 0.26s ease;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      border-top: 1px solid transparent;
+      pointer-events: none;
+    }
+    #searchHistorySection.expanded,
+    #searchHistorySection.active {
+      max-height: 560px !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      padding-top: 0.375rem !important; /* pt-1.5 */
+      padding-bottom: 0.75rem !important; /* pb-3 */
+      border-top-color: rgba(255, 255, 255, 0.08) !important;
+      pointer-events: auto !important;
+      overflow: hidden !important;
+    }
+    .light #searchHistorySection.expanded,
+    .light #searchHistorySection.active {
+      border-top-color: rgba(0, 0, 0, 0.08) !important;
+    }
 
-.folder-container {
+    /* Gentle Floating Fade Cascade on Search Items (Ultra-smooth, zero scale/blur) */
+    #searchHistorySection.active .search-history-item {
+      animation: smoothItemFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    #searchHistorySection.active .search-history-item:nth-child(1) { animation-delay: 0.02s; }
+    #searchHistorySection.active .search-history-item:nth-child(2) { animation-delay: 0.04s; }
+    #searchHistorySection.active .search-history-item:nth-child(3) { animation-delay: 0.06s; }
+    #searchHistorySection.active .search-history-item:nth-child(4) { animation-delay: 0.08s; }
+    #searchHistorySection.active .search-history-item:nth-child(5) { animation-delay: 0.10s; }
+    #searchHistorySection.active .search-history-item:nth-child(6) { animation-delay: 0.12s; }
+    #searchHistorySection.active .search-history-item:nth-child(7) { animation-delay: 0.14s; }
+    #searchHistorySection.active .search-history-item:nth-child(8) { animation-delay: 0.16s; }
+
+    @keyframes smoothItemFadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #searchHistorySection.active #searchDropdownFooter {
+      animation: smoothFooterFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+    @keyframes smoothFooterFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .search-history-item.active-suggest {
+      background: rgba(27, 84, 255, 0.32) !important;
+      color: #ffffff !important;
+    }
+    .light .search-history-item.active-suggest {
+      background: rgba(59, 130, 246, 0.16) !important;
+      color: #0f172a !important;
+    }
+
+    /* Smooth Motion for Shortcuts Container */
+    #shortcutsContainer {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ========================================================================== */
+    /* ULTRA-SMOOTH "SHOW MORE" ACCORDION EXPANSION (Buttery Smooth Glide)       */
+    /* ========================================================================== */
+    #extendedShortcutsRow {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-12px) scale(0.98);
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 0 !important;
+      display: flex;
+      pointer-events: none;
+    }
+    #extendedShortcutsRow.expanded {
+  margin-bottom: 3.5rem !important; /* Extra bottom breathing room */
+      max-height: 240px;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      margin-top: 1.75rem !important; /* mt-7 */
+      pointer-events: auto;
+      overflow: visible;
+    }
+    #showMoreIcon {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+    }
+
+  
+    /* ========================================================================== */
+    /* UNIFIED DROPDOWN PANEL ANIMATION (Silky Smooth Accordion Dropdown)         */
+    /* ========================================================================== */
+    .dropdown-panel {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-10px) scale(0.99);
+      transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .dropdown-panel.active {
+      max-height: 520px;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      overflow: visible;
+    }
+
+    #searchUnifiedCard {
+      border-radius: 9999px;
+      transition: border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #searchUnifiedCard.expanded {
+      border-radius: 28px !important;
+      box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.8),
+                  0 0 36px -2px rgba(131, 249, 255, 0.38),
+                  0 0 60px 0 rgba(27, 84, 255, 0.28),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.35) !important;
+      border-color: rgba(131, 249, 255, 0.6) !important;
+    }
+    .light #searchUnifiedCard.expanded {
+      box-shadow: 0 24px 50px -10px rgba(70, 95, 140, 0.28),
+                  0 0 32px -2px rgba(99, 102, 241, 0.3),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(99, 102, 241, 0.6) !important;
+    }
+
+    /* Shortcuts Smooth Fluid Physics */
+    #shortcutsContainer {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Show More Shortcuts Accordion */
+    #extendedShortcutsRow {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-12px) scale(0.98);
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 0 !important;
+      display: flex;
+      pointer-events: none;
+    }
+    #extendedShortcutsRow.expanded {
+  margin-bottom: 3.5rem !important; /* Extra bottom breathing room */
+      max-height: 240px;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      margin-top: 1.75rem !important; /* mt-7 */
+      pointer-events: auto;
+      overflow: visible;
+    }
+    #showMoreIcon {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+    }
+
+  
+/* ========================================================================== */
+/* SEARCH BAR PRECISE MARGINS & PADDINGS (Explicit Pixel Dimensions)          */
+/* ========================================================================== */
+#searchForm {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 56px !important;
+  padding-left: 22px !important;
+  padding-right: 14px !important;
   position: relative !important;
+  box-sizing: border-box !important;
 }
-.folder-dropdown {
-  position: absolute !important;
-  top: 100% !important;
-  left: 0 !important;
-  margin-top: 4px !important;
-  display: none;
-  z-index: 100 !important;
-  animation: menuFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+#searchIconSpan {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 14px !important;
+  flex-shrink: 0 !important;
+  color: #cbd5e1 !important;
+  cursor: pointer !important;
 }
-.folder-dropdown.active {
+
+#searchInput {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #f8fafc !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.search-action-buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-left: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+#micBtn, #lensBtn {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#aiModeBtn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 14px !important;
+  margin-left: 6px !important;
+  border-radius: 9999px !important;
+  background: rgba(27, 84, 255, 0.25) !important;
+  border: 1px solid rgba(131, 249, 255, 0.35) !important;
+  color: #83F9FF !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+#aiModeBtn:hover {
+  background: rgba(27, 84, 255, 0.45) !important;
+  box-shadow: 0 0 14px rgba(131, 249, 255, 0.35) !important;
+}
+
+/* Common utility classes in extension */
+.pl-5 { padding-left: 1.25rem !important; }
+.pr-3\.5 { padding-right: 0.875rem !important; }
+.mr-3\.5 { margin-right: 0.875rem !important; }
+.ml-2\.5 { margin-left: 0.625rem !important; }
+.w-9 { width: 2.25rem !important; }
+.h-9 { height: 2.25rem !important; }
+.w-5 { width: 1.25rem !important; }
+.h-5 { height: 1.25rem !important; }
+.space-x-1\.5 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.375rem !important; }
+.space-x-2\.5 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.625rem !important; }
+.space-y-0\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.125rem !important; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+
+  
+/* ========================================================================== */
+/* LIQUID GLASS SEARCH BAR & MATCHING DROPDOWN (image_e8e9b9.png SPEC)        */
+/* ========================================================================== */
+#searchUnifiedCard {
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 100%),
+              rgba(4, 8, 17, 0.65) !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top-color: rgba(131, 249, 255, 0.45) !important;
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.65),
+              0 0 24px -2px rgba(131, 249, 255, 0.25),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.22) !important;
+  transition: border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#searchUnifiedCard.expanded {
+  border-radius: 28px !important;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.8),
+              0 0 36px -2px rgba(131, 249, 255, 0.38),
+              0 0 60px 0 rgba(27, 84, 255, 0.28),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(131, 249, 255, 0.6) !important;
+}
+.light #searchUnifiedCard.expanded {
+  box-shadow: 0 24px 50px -10px rgba(70, 95, 140, 0.28),
+              0 0 32px -2px rgba(99, 102, 241, 0.3),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(99, 102, 241, 0.6) !important;
+}
+
+#searchForm {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 56px !important;
+  padding-left: 22px !important;
+  padding-right: 14px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+#searchIconSpan {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 14px !important;
+  flex-shrink: 0 !important;
+  color: #cbd5e1 !important;
+  cursor: pointer !important;
+}
+
+#searchInput {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #f8fafc !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+/* Dropdown Panels: Google Lens & Generic */
+#googleLensDropdownSection,
+.dropdown-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px) scale(0.99);
+  transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+#googleLensDropdownSection.active,
+.dropdown-panel.active {
+  max-height: 560px !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+  overflow: visible !important;
+}
+
+/* History items matching image_e8e9b9.png */
+.search-history-item {
+  padding: 10px 16px !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.search-history-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+.light .search-history-item {
+  color: #1e293b !important;
+}
+.light .search-history-item:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: #0f172a !important;
+}
+
+/* Lower Shortcuts Bar Position */
+#shortcutsContainer {
+  margin-top: 4.5rem !important; /* Lower down */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+@media (min-width: 768px) {
+  #shortcutsContainer {
+    margin-top: 5.5rem !important; /* Even lower on desktop */
+  }
+}
+
+/* Show More Shortcuts Accordion */
+#extendedShortcutsRow {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0 !important;
+  pointer-events: none;
+}
+#extendedShortcutsRow.expanded {
+  margin-bottom: 3.5rem !important; /* Extra bottom breathing room */
+  max-height: 280px !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  margin-top: 1.75rem !important; /* mt-7 */
+  pointer-events: auto !important;
+  overflow: visible !important;
+}
+#showMoreIcon {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+/* Full-Width Bookmarks Header (Zero Gap on Far Right) */
+    #bookmarksBarHeader {
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative !important;
+      z-index: 30 !important;
+      box-sizing: border-box !important;
+    }
+    
+    .light 
+    ::-webkit-scrollbar-track {
+      background: transparent !important;
+      margin-top: 36px !important;
+    }
+  
+    /* ========================================================================== */
+    /* ROCK-SOLID DUAL-SCENE THEME TOGGLE SWITCH (Guaranteed 80px x 32px Pill)   */
+    /* ========================================================================== */
+    #themeToggleBtn {
+      position: relative !important;
+      width: 80px !important;
+      min-width: 80px !important;
+      max-width: 80px !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      max-height: 32px !important;
+      border-radius: 9999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.18) !important;
+      overflow: hidden !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+      display: inline-block !important;
+      flex-shrink: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+    }
+    #themeToggleBtn:hover {
+      transform: scale(1.06) !important;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.32) !important;
+    }
+    #themeToggleBtn:active {
+      transform: scale(0.96) !important;
+    }
+
+    .light #themeToggleBtn {
+      border: 1px solid rgba(0, 0, 0, 0.16) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    #dayScene {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(to right, #4ba3e3, #74bbf3, #9dd2fa) !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.45s ease !important;
+    }
+
+    #nightScene {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(to right, #070b1a, #0d1636, #121d45) !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.45s ease !important;
+    }
+
+    #themeKnob {
+      position: absolute !important;
+      top: 3px !important;
+      left: 3px !important;
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 9999px !important;
+      background: #ffffff !important;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+      z-index: 20 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
+      pointer-events: none !important;
+    }
+
+  
+    /* 3-Dot Button Hidden: Right-Click directly opens Options */
+    .shortcut-menu-btn {
+      display: none !important;
+    }
+
+  
+    /* Premium Bookmarks Bar Header (Adaptive Dark & Light Themes) */
+    #bookmarksBarHeader {
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative !important;
+      z-index: 30 !important;
+      box-sizing: border-box !important;
+      background: rgba(3, 6, 12, 0.92) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      transition: background 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .light #bookmarksBarHeader {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .light #bookmarksBarHeader .folder-btn,
+    .light #bookmarksBarHeader #allBookmarksBtn,
+    .light #bookmarksBarHeader #chromeAppsBtn,
+    .light #bookmarksBarHeader a,
+    .light #bookmarksBarHeader span,
+    .light #bookmarksBarHeader button {
+      color: #334155 !important;
+    }
+
+    .light #bookmarksBarHeader .folder-btn:hover,
+    .light #bookmarksBarHeader #allBookmarksBtn:hover,
+    .light #bookmarksBarHeader #chromeAppsBtn:hover,
+    .light #bookmarksBarHeader a:hover {
+      color: #0f172a !important;
+      background-color: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    .light #bookmarksBarHeader .folder-dropdown {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    .light #bookmarksBarHeader .folder-dropdown a {
+      color: #1e293b !important;
+    }
+
+    .light #bookmarksBarHeader .folder-dropdown a:hover {
+      background-color: rgba(59, 130, 246, 0.1) !important;
+      color: #1B54FF !important;
+    }
+
+    .light #bookmarksBarHeader .h-3\.5.w-px {
+      background-color: rgba(0, 0, 0, 0.12) !important;
+    }
+
+
+    /* Google Apps Dropdown & App Items */
+    .google-apps-dropdown {
+      width: 280px !important;
+      padding: 12px !important;
+    }
+    .google-app-item {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 8px 4px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: pointer !important;
+    }
+    .google-app-item:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      transform: translateY(-2px) !important;
+    }
+    .google-app-item:hover .google-app-icon {
+      transform: scale(1.12) !important;
+    }
+    .google-app-icon {
+      width: 36px !important;
+      height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 4px !important;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .google-app-label {
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      color: #e2e8f0 !important;
+      text-align: center !important;
+      max-width: 76px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      line-height: 1.2 !important;
+    }
+    .google-app-item:hover .google-app-label {
+      color: #ffffff !important;
+    }
+    .light .google-apps-dropdown {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+    }
+    .light .google-app-item:hover {
+      background: rgba(59, 130, 246, 0.1) !important;
+    }
+    .light .google-app-label {
+      color: #1e293b !important;
+    }
+    .light .google-app-item:hover .google-app-label {
+      color: #1B54FF !important;
+    }
+
+#micBtn.mic-active {
+  background: rgba(234, 67, 53, 0.22) !important;
+  box-shadow: 0 0 16px rgba(234, 67, 53, 0.45) !important;
+}
+#micBtn.mic-active #micPulse {
   display: block !important;
+  border-color: #ea4335 !important;
+  background-color: rgba(234, 67, 53, 0.25) !important;
 }
-/* Zero scroll & viewport constraints */
-html, body {
+.light #micBtn.mic-active {
+  background: rgba(234, 67, 53, 0.16) !important;
+  box-shadow: 0 0 16px rgba(234, 67, 53, 0.35) !important;
+}
+
+    /* Rock-Solid Search Bar Positioning (Zero Homescreen Shaking) */
+    #searchPanelWrapper {
+      position: relative !important;
+      height: 56px !important;
+      margin-bottom: 2rem !important;
+    }
+    @media (min-width: 768px) {
+      #searchPanelWrapper {
+        margin-bottom: 2.5rem !important;
+      }
+    }
+    #searchUnifiedCard {
+      position: absolute !important;
+      top: 0 !important;
+      left: 16px !important;
+      right: 16px !important;
+      width: calc(100% - 32px) !important;
+      z-index: 40 !important;
+      border-radius: 28px !important;
+    }
+    #aiResponsePanel {
+      position: absolute !important;
+      top: 64px !important;
+      left: 16px !important;
+      right: 16px !important;
+      width: calc(100% - 32px) !important;
+      z-index: 35 !important;
+    }
+  
+/* Google Apps Dropdown & App Items */
+.google-apps-dropdown {
+  width: 280px !important;
+  padding: 12px !important;
+}
+.google-app-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 4px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+.google-app-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+.google-app-item:hover .google-app-icon {
+  transform: scale(1.12) !important;
+}
+.google-app-icon {
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 4px !important;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.google-app-label {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: #e2e8f0 !important;
+  text-align: center !important;
+  max-width: 76px !important;
+  white-space: nowrap !important;
   overflow: hidden !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
-  max-height: 100vh !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.2 !important;
 }
-
-.h-screen { height: 100vh; }
-.overflow-visible { overflow: visible !important; }
-.h-9 { height: 2.25rem; }
-.min-h-\[36px\] { min-height: 36px; }
-.max-h-\[36px\] { max-height: 36px; }
-
-/* Chrome-Style Premium Circular White Tile Shortcuts & Drag-and-Drop Reordering */
-.shortcut-tile {
-  position: relative;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+.google-app-item:hover .google-app-label {
+  color: #ffffff !important;
 }
-.shortcut-tile.dragging {
-  opacity: 0.35;
-  transform: scale(0.9);
-}
-.shortcut-tile.drag-over {
-  outline: 2px dashed #83F9FF;
-  outline-offset: 4px;
-  border-radius: 1.25rem;
-}
-.shortcut-icon-circle {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.shortcut-tile:hover .shortcut-icon-circle {
-  transform: scale(1.1);
-  box-shadow: 0 0 28px rgba(27, 84, 255, 0.45), 0 12px 30px rgba(0, 0, 0, 0.45);
-  border-color: rgba(131, 249, 255, 0.5) !important;
-}
-.light .shortcut-icon-circle {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 6px 18px rgba(90, 115, 160, 0.16);
-}
-.light .shortcut-tile:hover .shortcut-icon-circle {
-  box-shadow: 0 10px 24px rgba(70, 95, 140, 0.25) !important;
-  border-color: rgba(27, 84, 255, 0.4) !important;
-}
-.light .shortcut-tile span.shortcut-label {
-  color: #1e293b !important;
-}
-.light .shortcut-tile:hover span.shortcut-label {
-  color: #000000 !important;
-}
-.shortcut-context-menu {
-  animation: menuFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.light .shortcut-context-menu {
+.light .google-apps-dropdown {
   background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.15) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
-}
-.light .shortcut-context-menu button {
-  color: #1e293b !important;
-}
-.light .shortcut-context-menu button:hover {
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #000000 !important;
-}
-
-.pr-6 { padding-right: 1.5rem; }
-.pr-10 { padding-right: 2.5rem; }
-
-
-/* Good Wish Greeting Liquid Glass Card */
-#greetingWidget {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-#greetingWidget:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -8px rgba(27, 84, 255, 0.35), 0 0 20px -2px rgba(131, 249, 255, 0.25);
-}
-.light #greetingWidget {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 246, 255, 0.9) 100%) !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 10px 25px -5px rgba(90, 115, 160, 0.18) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
 }
-.light #greetingTitle {
-  color: #0f172a !important;
+.light .google-app-item:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
 }
-.light #greetingWish {
-  color: #475569 !important;
-}
-
-/* Left Square Icon Chrome Apps & Bookmarks Dropdown */
-#chromeAppsDropdown {
-  animation: menuFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.light #chromeAppsDropdown {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 20px 45px -10px rgba(70, 95, 140, 0.22) !important;
-}
-.light #chromeAppsDropdown button,
-.light #chromeAppsDropdown a {
+.light .google-app-label {
   color: #1e293b !important;
 }
-.light #chromeAppsDropdown button:hover,
-.light #chromeAppsDropdown a:hover {
-  background-color: rgba(59, 130, 246, 0.1) !important;
-  color: #0f172a !important;
-}
-.light #chromeAppsDropdown .text-slate-400 {
-  color: #64748b !important;
-}
-.light #chromeAppsDropdown .border-t {
-  border-top-color: rgba(0, 0, 0, 0.08) !important;
+.light .google-app-item:hover .google-app-label {
+  color: #1B54FF !important;
 }
