@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkbg text-slate-100 h-screen min-h-screen font-sans antialiased relative overflow-hidden selection:bg-[#1B54FF] selection:text-white transition-colors duration-300 dark flex flex-col" id="bodyRoot">
+<!-- ======================================================== -->
+  <!-- FLUID ORGANIC MOTION LIVE BACKGROUND                     -->
+  <!-- ======================================================== -->
+  <div class="fluid-bg-canvas" id="fluidCanvasBg">
+    <div class="fluid-wave fluid-wave-1"></div>
+    <div class="fluid-wave fluid-wave-2"></div>
+    <div class="fluid-wave fluid-wave-3"></div>
+    <div class="fluid-wave fluid-wave-4"></div>
+    <div class="fluid-wave fluid-wave-5"></div>
+  </div>
+
+  <!-- Cursor-Following Ambient Light Halo -->
+  <div class="cursor-glow-light" id="cursorGlow"></div>
+
+  <!-- ======================================================== -->
+  <!-- 1. FULL-WIDTH CHROME BOOKMARKS BAR (Default Chrome Style)-->
+  <!-- ======================================================== -->
+  <header class="w-full bg-[#03060c]/90 dark:bg-[#03060c]/90 backdrop-blur-md border-b border-white/[0.08] select-none z-30 px-3 h-9 min-h-[36px] max-h-[36px] flex items-center justify-between text-xs relative overflow-visible" id="bookmarksBarHeader">
+    <div class="flex items-center space-x-1.5 overflow-visible py-0.5">
+      <!-- Chrome 2x2 Apps & Bookmarks Options Menu -->
+      <div class="relative shrink-0">
+        <button type="button" id="chromeAppsBtn" class="flex items-center space-x-1.5 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all shrink-0 cursor-pointer" title="Bookmarks & Apps Options">
+          <svg class="w-3.5 h-3.5 opacity-90" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="1" y="1" width="6" height="6" rx="1"></rect>
+            <rect x="9" y="1" width="6" height="6" rx="1"></rect>
+            <rect x="1" y="9" width="6" height="6" rx="1"></rect>
+            <rect x="9" y="9" width="6" height="6" rx="1"></rect>
+          </svg>
+        </button>
+
+        <!-- Bookmarks & Apps Dropdown -->
+        <div id="chromeAppsDropdown" class="hidden absolute top-full left-0 mt-1 w-64 glass-card rounded-2xl p-2.5 z-50 shadow-2xl text-xs space-y-1">
+          <div class="px-3 py-1 text-[10px] font-bold text-[#83F9FF] uppercase tracking-wider">Bookmarks Bar Options</div>
+          <button type="button" id="dropdownAllBookmarksBtn" class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors text-left">
+            <span class="text-sm">📁</span>
+            <div>
+              <div class="font-medium text-xs">All Bookmarks</div>
+              <div class="text-[10px] text-slate-400">Open Chrome Bookmarks Manager</div>
+            </div>
+          </button>
+          <button type="button" id="dropdownSyncBookmarksBtn" class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors text-left">
+            <span class="text-sm">🔄</span>
+            <div>
+              <div class="font-medium text-xs">Sync & Import Bookmarks</div>
+              <div class="text-[10px] text-slate-400">Live API sync or upload file</div>
+            </div>
+          </button>
+
+          <div class="my-1 border-t border-white/10"></div>
+          <div class="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Quick Apps</div>
+          <a href="https://chromewebstore.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
+            <span class="text-sm">🛍️</span>
+            <span class="text-xs">Chrome Web Store</span>
+          </a>
+          <a href="https://mail.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
+            <span class="text-sm">✉️</span>
+            <span class="text-xs">Gmail</span>
+          </a>
+          <a href="https://drive.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
+            <span class="text-sm">📂</span>
+            <span class="text-xs">Google Drive</span>
+          </a>
+          <a href="https://docs.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
+            <span class="text-sm">📄</span>
+            <span class="text-xs">Google Docs</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="h-3.5 w-px bg-white/10 shrink-0 mx-1"></div>
+
+      <!-- Bookmarks Folders matching reference -->
+      <nav class="flex items-center space-x-1 text-slate-300 text-[12px] font-normal tracking-normal" id="bookmarksBar" aria-label="Bookmarks bar">
+        
+        <!-- Folder 1: AI Tools -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="ai">
+            <span>📁</span>
+            <span>🤖</span>
+            <span>AI Tools</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-ai">
+            <a href="https://chatgpt.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🤖</span>
+              <span>ChatGPT</span>
+            </a>
+            <a href="https://gemini.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>✨</span>
+              <span>Google Gemini</span>
+            </a>
+            <a href="https://claude.ai" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>⚡</span>
+              <span>Claude AI</span>
+            </a>
+            <a href="https://perplexity.ai" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🔍</span>
+              <span>Perplexity</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 2: Inspiration -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="inspiration">
+            <span>📁</span>
+            <span>🎨</span>
+            <span>Inspiration</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-inspiration">
+            <a href="https://dribbble.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🏀</span>
+              <span>Dribbble</span>
+            </a>
+            <a href="https://behance.net" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🔷</span>
+              <span>Behance</span>
+            </a>
+            <a href="https://pinterest.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📌</span>
+              <span>Pinterest</span>
+            </a>
+            <a href="https://awwwards.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🏆</span>
+              <span>Awwwards</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 3: Workspace -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="workspace">
+            <span>📁</span>
+            <span>💼</span>
+            <span>Workspace</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-workspace">
+            <a href="https://mail.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>✉️</span>
+              <span>Gmail</span>
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📁</span>
+              <span>Google Drive</span>
+            </a>
+            <a href="https://notion.so" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📝</span>
+              <span>Notion</span>
+            </a>
+            <a href="https://github.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🐙</span>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 4: Payment tracker -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="payment">
+            <span>📁</span>
+            <span>💸</span>
+            <span>Payment tracker</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-payment">
+            <a href="https://stripe.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>💳</span>
+              <span>Stripe Dashboard</span>
+            </a>
+            <a href="https://paypal.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🅿️</span>
+              <span>PayPal</span>
+            </a>
+            <a href="https://sheets.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📊</span>
+              <span>Budget Sheet</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 5: Tools -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="tools">
+            <span>📁</span>
+            <span>🔥</span>
+            <span>Tools</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-tools">
+            <a href="https://figma.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📐</span>
+              <span>Figma</span>
+            </a>
+            <a href="https://canva.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🎨</span>
+              <span>Canva</span>
+            </a>
+            <a href="https://tinyurl.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🔗</span>
+              <span>URL Shortener</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 6: social media -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="social">
+            <span>📁</span>
+            <span>📱</span>
+            <span>social media</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-social">
+            <a href="https://twitter.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🐦</span>
+              <span>X / Twitter</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>💼</span>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📸</span>
+              <span>Instagram</span>
+            </a>
+            <a href="https://reddit.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>👽</span>
+              <span>Reddit</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Folder 7: Digital marketing -->
+        <div class="relative folder-container">
+          <button type="button" class="flex items-center space-x-1 text-slate-300 hover:text-white px-2 py-1 rounded hover:bg-white/[0.08] transition-all folder-btn" data-folder="marketing">
+            <span>📁</span>
+            <span>📊</span>
+            <span>Digital marketing</span>
+          </button>
+          <div class="folder-dropdown absolute top-full left-0 mt-1 w-52 glass-card rounded-2xl p-2.5 z-50 shadow-2xl" id="dropdown-marketing">
+            <a href="https://analytics.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>📈</span>
+              <span>Google Analytics</span>
+            </a>
+            <a href="https://ads.google.com" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🎯</span>
+              <span>Google Ads</span>
+            </a>
+            <a href="https://search.google.com/search-console" target="_blank" class="flex items-center space-x-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200 hover:text-white transition-colors">
+              <span>🔍</span>
+              <span>Search Console</span>
+            </a>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+
+    </header>
+
+  <!-- ======================================================== -->
+  <!-- 2. MAIN CANVAS CONTAINER & RIGHT-SIDE MENU               -->
+  <!-- ======================================================== -->
+  <div class="relative z-10 flex flex-col flex-grow w-full max-w-[1360px] mx-auto px-6 md:px-10 pb-8">
+
+    <!-- Right-Side Canvas Menu (Same as default Chrome) -->
+        <div class="w-full flex items-center justify-between pt-3 pb-2 select-none z-20" id="canvasTopControls">
+      <!-- Left: Good Wish Message with Liquid Glass Effect & Safe Margin -->
+      <div id="greetingWidget" class="flex items-center space-x-3 px-4 py-2 rounded-2xl glass-card backdrop-blur-xl border border-white/10 shadow-lg text-xs transition-all duration-300 hover:border-[#83F9FF]/40 group max-w-sm cursor-pointer select-none" title="Click to refresh wish">
+        <div id="greetingIcon" class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#1B54FF] to-[#83F9FF] flex items-center justify-center text-white text-xs shadow-[0_0_12px_rgba(131,249,255,0.4)] shrink-0 transition-transform group-hover:scale-110">
+          ✨
+        </div>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center space-x-1.5">
+            <span id="greetingTitle" class="font-semibold text-white tracking-wide text-[13px]">Good morning</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#83F9FF] animate-pulse"></span>
+          </div>
+          <span id="greetingWish" class="text-[11px] text-slate-300/90 font-normal truncate max-w-[220px] md:max-w-[280px]">Wishing you an inspiring and productive day ahead.</span>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <button 
+          type="button" 
+          id="themeToggleBtn" 
+          class="relative w-20 h-8 rounded-full border border-white/40 shadow-[0_0_12px_rgba(255,255,255,0.18)] overflow-hidden cursor-pointer select-none transition-all duration-300 hover:scale-105 active:scale-95" 
+          title="Toggle Day/Night Mode"
+          aria-label="Toggle theme"
+        >
+          <!-- 1. Day Mode Scene -->
+          <div id="dayScene" class="toggle-scene absolute inset-0 opacity-0 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#4ba3e3] via-[#74bbf3] to-[#9dd2fa]"></div>
+            <div class="absolute right-2 top-1.5 w-5 h-5 rounded-full bg-[#ffeb79] shadow-[0_0_10px_rgba(255,235,121,0.9)]"></div>
+            <svg class="absolute top-1.5 right-8 w-3.5 h-2.5 text-white opacity-85" viewBox="0 0 24 16" fill="currentColor">
+              <path d="M0 6C4 2 8 8 12 6C16 4 20 2 24 6C20 8 16 7 12 10C8 7 4 8 0 6Z"/>
+            </svg>
+            <svg class="absolute -bottom-1 inset-x-0 w-full h-4 text-white" viewBox="0 0 100 24" preserveAspectRatio="none" fill="currentColor">
+              <path opacity="0.6" d="M0 24C10 16 25 18 35 24C45 15 65 14 75 24C85 17 95 18 100 24Z"/>
+              <path opacity="0.95" d="M0 24C5 18 15 17 22 24C32 18 42 16 52 24C62 17 78 16 88 24C94 20 98 21 100 24Z"/>
+            </svg>
+          </div>
+
+          <!-- 2. Night Mode Scene -->
+          <div id="nightScene" class="toggle-scene absolute inset-0 opacity-100 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#070b1a] via-[#0d1636] to-[#121d45]"></div>
+            <div class="absolute left-2 top-1.5 w-4 h-4 flex items-center justify-center">
+              <svg class="w-4 h-4 text-[#ffeb79] drop-shadow-[0_0_6px_rgba(255,235,121,0.85)]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.3 2a10 10 0 0 0-.19 14.14 10 10 0 0 0 10.09 2.56 10 10 0 1 1-9.9-16.7z"/>
+              </svg>
+            </div>
+            <span class="absolute top-1.5 right-9 w-1 h-1 bg-white rounded-full opacity-80 animate-pulse"></span>
+            <span class="absolute top-3 right-6 w-0.5 h-0.5 bg-white rounded-full opacity-90"></span>
+            <span class="absolute top-2 right-3 w-0.5 h-0.5 bg-white rounded-full opacity-70"></span>
+            <svg class="absolute -bottom-1 inset-x-0 w-full h-4 text-[#b3c5e8]" viewBox="0 0 100 24" preserveAspectRatio="none" fill="currentColor">
+              <path opacity="0.5" d="M0 24C12 15 28 17 40 24C52 16 68 15 80 24C90 18 96 19 100 24Z"/>
+              <path opacity="0.85" d="M0 24C6 19 18 18 26 24C38 17 50 16 60 24C72 17 84 17 92 24C96 21 98 22 100 24Z"/>
+            </svg>
+          </div>
+
+          <!-- 3. Sliding White Circular Knob -->
+          <div 
+            id="themeKnob" 
+            class="toggle-knob absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.95)] z-20 flex items-center justify-center transform translate-x-12"
+          >
+            <div class="w-1 h-1 rounded-full bg-slate-100 opacity-60"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <main class="flex flex-col items-center justify-center my-auto py-4 md:py-6">
+
+      <!-- Digital Clock & Date with Visual Breathing Room -->
+      <div class="text-center mb-8 select-none">
+        <div class="inline-flex items-baseline justify-center cursor-pointer" id="clockToggleArea" title="Click to toggle 12h/24h format">
+          <span id="clockDigits" class="text-8xl md:text-9xl font-bold tracking-tight text-white dark:drop-shadow-[0_8px_32px_rgba(0,0,0,0.55)]">08:58</span>
+          <span id="clockPeriod" class="text-2xl md:text-3xl font-semibold text-slate-300 ml-3 tracking-normal">AM</span>
+        </div>
+        <div id="dateDisplay" class="text-sm md:text-base font-normal text-slate-400 mt-3 tracking-wide">Wednesday, October 21, 2026</div>
+      </div>
+
+      <!-- Glassmorphic Command & Search Bar -->
+      <div class="w-full max-w-2xl px-4 mb-11 relative">
+        <form id="searchForm" class="glass-search-box relative flex items-center w-full h-14 px-5 rounded-2xl">
+          
+          <!-- Search Magnifying Glass Icon -->
+          <span class="text-slate-400 mr-3 shrink-0 flex items-center">
+            <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </span>
+
+          <!-- Search Input with Command Placeholder -->
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Type a command or search..." 
+            autocomplete="off"
+            class="w-full bg-transparent border-none outline-none text-slate-100 placeholder-slate-400 text-sm md:text-base py-2.5 font-normal"
+          />
+
+          <!-- Right Action Buttons inside Search Bar -->
+          <div class="flex items-center space-x-2.5 ml-3 shrink-0">
+
+            <!-- Voice Search (Microphone) -->
+            <button type="button" id="micBtn" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors" title="Voice Search">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+              </svg>
+            </button>
+
+            <!-- Google Lens / Camera -->
+            <button type="button" id="lensBtn" class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors" title="Search by image">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </button>
+
+            <!-- AI Mode Pill Button (Arounda Brand Electric Cyan & Cobalt) -->
+            <button type="button" id="aiModeBtn" class="flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1B54FF]/25 hover:bg-[#1B54FF]/45 text-[#83F9FF] border border-[#83F9FF]/35 text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow-[0_0_14px_rgba(131,249,255,0.35)]">
+              <svg class="w-3.5 h-3.5 text-[#83F9FF]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z"></path>
+              </svg>
+              <span>AI Mode</span>
+            </button>
+
+          </div>
+        </form>
+
+        <!-- Command Palette Suggestions Dropdown -->
+        <div id="commandDropdown" class="command-dropdown hidden absolute top-full left-4 right-4 mt-2 rounded-2xl p-3 z-40 text-xs shadow-2xl">
+          
+          <div class="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Quick Jump</div>
+          <div class="space-y-1 my-1">
+            <a href="https://calendar.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-base">📅</span>
+                <span>Google Calendar</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">cal ↗</span>
+            </a>
+            <a href="https://mail.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-base">✉️</span>
+                <span>Gmail</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">mail ↗</span>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-base">▶️</span>
+                <span>YouTube</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">yt ↗</span>
+            </a>
+          </div>
+
+          <div class="px-3 pt-2.5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-t border-white/[0.08] mt-2">Quick Apps</div>
+          <div class="space-y-1 my-1">
+            <a href="https://gemini.google.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-base">✨</span>
+                <span>Google Gemini</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">⌘G</span>
+            </a>
+            <a href="https://chatgpt.com" target="_blank" class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors">
+              <div class="flex items-center space-x-2.5">
+                <span class="text-base">🤖</span>
+                <span>ChatGPT</span>
+              </div>
+              <span class="text-[10px] text-slate-400 font-mono">⌘C</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- AI Assistant / Search Dropdown Drawer -->
+        <div id="aiResponsePanel" class="hidden mt-4 p-5 rounded-2xl glass-card text-sm text-slate-200">
+          <div class="flex items-center justify-between mb-2.5">
+            <span class="flex items-center space-x-2 text-[#83F9FF] font-semibold text-xs uppercase tracking-wider">
+              <span>✨</span>
+              <span>AI Assistant Active</span>
+            </span>
+            <button type="button" id="closeAiPanelBtn" class="text-slate-400 hover:text-white text-xs px-2 py-1 rounded hover:bg-white/10">✕ Close</button>
+          </div>
+          <div id="aiResponseContent" class="text-slate-300 leading-relaxed text-xs md:text-sm">
+            Type any question above and press Enter. AI Mode will synthesize answers or jump straight to Gemini or ChatGPT.
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-end space-x-2.5 text-xs">
+            <button type="button" id="askGeminiBtn" class="px-3 py-1.5 rounded-xl bg-blue-600/40 hover:bg-blue-600/70 text-white font-medium transition-colors">Ask Gemini</button>
+            <button type="button" id="askChatGPTBtn" class="px-3 py-1.5 rounded-xl bg-[#1B54FF]/50 hover:bg-[#1B54FF]/80 text-white font-medium transition-colors">Ask ChatGPT</button>
+          </div>
+        </div>
+
+      <!-- Customizable, Draggable, Reorderable Chrome Shortcuts Grid with Real Site Logos -->
+      <div class="w-full max-w-4xl px-4 flex items-start justify-center flex-wrap gap-5 md:gap-7 select-none mt-2" id="shortcutsContainer">
+        <!-- Rendered dynamically with real logos, drag-and-drop reordering, edit, and move options -->
+      </div>
+
+    </main>
+
+
+    
+
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- 4. MODALS & POPUPS (Glassmorphic with Outer Edge Glow)   -->
+  <!-- ======================================================== -->
+
+  
+    <!-- Sync & Import Real Bookmarks Modal -->
+  <div id="syncBookmarksModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+    <div class="glass-card rounded-3xl w-full max-w-md p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+        <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+          <span>🔖</span>
+          <span>Chrome Bookmarks Sync</span>
+        </h3>
+        <button type="button" id="closeSyncBookmarksModalBtn" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <!-- Status Card -->
+        <div class="p-3.5 rounded-2xl bg-[#1B54FF]/20 border border-[#83F9FF]/30 text-slate-200">
+          <div class="flex items-start space-x-3">
+            <span class="text-xl shrink-0">⚡</span>
+            <div>
+              <div class="font-bold text-white text-xs mb-1" id="syncStatusTitle">Live Extension Mode Ready</div>
+              <div class="text-[11px] text-slate-300 leading-relaxed" id="syncStatusDesc">
+                When installed as your Chrome Extension, your real saved Chrome bookmarks bar automatically syncs here in real time via the Chrome Bookmarks API.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Preview Import Option -->
+        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+          <div class="font-bold text-slate-100 mb-1">Want to see your real bookmarks right now in Preview?</div>
+          <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">
+            In Chrome, open Bookmarks (<kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Ctrl+Shift+O</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Cmd+Option+B</kbd>), click <strong>⋮ (three dots)</strong> at the top right, choose <strong>Export bookmarks</strong>, and upload your <code class="text-[#83F9FF]">bookmarks.html</code> file:
+          </p>
+
+          <input type="file" id="bookmarksFileInput" accept=".html,.htm" class="hidden">
+          
+          <div class="flex items-center space-x-2.5">
+            <button type="button" id="chooseBookmarksFileBtn" class="px-4 py-2 rounded-xl bg-gradient-to-r from-[#1B54FF] to-[#2563EB] hover:from-[#2563EB] hover:to-[#83F9FF] text-white font-semibold shadow-md transition-all">
+              📂 Upload bookmarks.html
+            </button>
+            <button type="button" id="resetBookmarksBtn" class="px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-slate-300 hover:text-white font-medium transition-all">
+              Reset Default
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-white/10 flex justify-end">
+        <button type="button" id="doneSyncBookmarksBtn" class="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Custom Shortcut Modal -->
+  <div id="addShortcutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="glass-card rounded-3xl w-full max-w-sm p-7 shadow-2xl">
+      <div class="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
+        <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+          <span>🔗</span>
+          <span id="shortcutModalTitleText">Add Custom Shortcut</span>
+        </h3>
+        <button type="button" id="closeAddShortcutModalBtn" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10">✕</button>
+      </div>
+
+      <div class="space-y-3.5 text-xs">
+        <div>
+          <label for="shortcutNameInput" class="block text-slate-300 font-medium mb-1.5">Name</label>
+          <input type="text" id="shortcutNameInput" placeholder="e.g. GitHub" class="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 py-2 text-white outline-none focus:border-[#83F9FF] font-medium">
+        </div>
+
+        <div>
+          <label for="shortcutUrlInput" class="block text-slate-300 font-medium mb-1.5">URL</label>
+          <input type="text" id="shortcutUrlInput" placeholder="https://..." class="w-full bg-white/[0.06] border border-white/15 rounded-xl px-3.5 py-2 text-white outline-none focus:border-[#83F9FF] font-medium">
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/10 flex justify-end space-x-2.5 text-xs">
+        <button type="button" id="cancelShortcutBtn" class="px-4 py-2 rounded-xl bg-white/[0.08] text-slate-300 hover:bg-white/[0.15] font-medium">Cancel</button>
+        <button type="button" id="saveShortcutBtn" class="px-5 py-2 rounded-xl bg-gradient-to-r from-[#1B54FF] to-[#2563EB] hover:from-purple-500 hover:to-indigo-500 text-white font-semibold shadow-md hover:shadow-[0_0_16px_rgba(168,85,247,0.4)]">Add Shortcut</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="hidden fixed bottom-6 right-8 z-50 flex items-center space-x-2.5 px-4.5 py-3 rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-[#83F9FF]/40 text-white text-xs shadow-[0_0_20px_rgba(131,249,255,0.35)] animate-fadeIn">
+    <span id="toastIcon">✨</span>
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- 5. JAVASCRIPT APPLICATION LOGIC                          -->
+  <!-- ======================================================== -->
+  <script src="app.js"></script>
+</body>
+</html>
