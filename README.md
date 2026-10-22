@@ -1,72 +1,59 @@
 # A Minimalist Chrome Homepage Extension
 
-<<<<<<< HEAD
-A minimalist custom New Tab experience for Google Chrome.
-=======
+A minimalist, customizable New Tab experience for Google Chrome with light and dark themes.
 
 ## ✨ Preview
 
-### ☀️ Light Theme
-![Light Theme](screenshots/light-theme.png)
+| Light Theme | Dark Theme |
+|---|---|
+| ![Light theme preview](screenshots/light-theme.png) | ![Dark theme preview](screenshots/dark-theme.png) |
 
-### 🌙 Dark Theme
-![Dark Theme](screenshots/dark-theme.png)
+## ⬇️ Download
 
+**[Download the latest ZIP](https://github.com/rajvisual/A_minimalist_Chrome_hompage_extension/archive/refs/heads/main.zip)**
 
-## 1. Overview
-This package contains a custom, minimalist Chrome New Tab Extension and standalone homepage featuring a clean aesthetic with an obsidian fluid background, frosted glass search bar, dynamic bookmarks bar connected directly to Chrome's native Bookmarks API, 43-app Google launcher, and Rahul Raj Google Account drawer.
->>>>>>> d65e368 (docs: add light and dark theme screenshots)
+The ZIP includes the project files and screenshots. You do not need Git to download it.
 
-## Download
+> This is currently a developer-mode installation from source, not a Chrome Web Store release.
 
-**[⬇️ Download the ZIP file](https://github.com/rajvisual/A_minimalist_Chrome_hompage_extension/archive/refs/heads/main.zip)**
+## 🧩 Install in Google Chrome
 
-This downloads the project source as a ZIP from GitHub. You do not need Git to install it.
-
-> **Note:** This is an unpacked extension installation, not a Chrome Web Store release. You will need to load the extracted folder in Chrome using Developer mode.
-
-## Install it in Google Chrome
-
-1. Click **[Download ZIP](https://github.com/rajvisual/A_minimalist_Chrome_hompage_extension/archive/refs/heads/main.zip)** above.
-2. When the download finishes, open your **Downloads** folder.
-3. Right-click the downloaded ZIP file and choose **Extract All…**. Extract it to a folder you can find again.
-4. Open Chrome and enter `chrome://extensions` in the address bar, then press **Enter**.
-5. Turn on **Developer mode** using the switch near the top-right corner.
+1. Click **Download the latest ZIP** above.
+2. Open your **Downloads** folder.
+3. Right-click the ZIP and choose **Extract All…**.
+4. In Chrome, open `chrome://extensions`.
+5. Turn on **Developer mode**.
 6. Click **Load unpacked**.
-7. Select the extracted project folder—the folder containing `manifest.json`, `newtab.html`, `app.js`, and `style.css`. Do not select the ZIP file itself or the parent Downloads folder.
-8. Open a new tab with **Ctrl + T**. The extension should appear as your new-tab page.
+7. Select the extracted project folder containing `manifest.json`, `newtab.html`, `app.js`, and `style.css`. Do not select the ZIP file itself.
+8. Open a new tab with **Ctrl + T** to view the extension.
 
-### Make it your Chrome homepage
+## 🌓 Themes
 
-This extension replaces Chrome's **New Tab** page. To open a Home button as well:
+Switch between the light and dark appearances to suit your preference.
 
-1. Open Chrome **Settings**.
-2. Go to **Appearance**.
-3. Turn on **Show Home button**.
+## 🏠 New Tab vs. Home button
 
-Chrome's Home button normally opens a website URL; this extension is designed to replace the New Tab page, so the Home button may not open this extension directly.
+This extension replaces Chrome's **New Tab** page. Chrome's optional Home button is a separate setting and may not open this extension directly.
 
-## Update the extension
+## 🔄 Updating
 
-1. Download the latest ZIP from this repository and extract it into a new folder.
+1. Download and extract the latest ZIP.
 2. Open `chrome://extensions`.
-3. Find this extension and click **Remove** if you no longer need the old copy, or use **Reload** after replacing the files in its existing folder.
-4. Click **Load unpacked** and select the latest extracted folder if you removed the old copy.
+3. If the extension is already loaded, either update the files in its existing folder and click **Reload**, or remove the old entry and use **Load unpacked** to select the new extracted folder.
 
-## Project files
+## 📁 Project files
 
 - `manifest.json` — Chrome extension configuration
 - `newtab.html` — New Tab page structure
-- `style.css` — Styling
+- `style.css` — Styles
 - `app.js` — Page behavior
 - `icons/` — Extension icons
+- `screenshots/` — Light and dark theme previews
 
-## Development
+## 🔒 Note
 
-To contribute or inspect the source code, browse the files in this repository:
+Review the source code and requested permissions before installing any extension. A successful local installation does not mean the extension has been reviewed or published by the Chrome Web Store.
 
-**[View the source code on GitHub](https://github.com/rajvisual/A_minimalist_Chrome_hompage_extension)**
+## 💻 Source code
 
-## Important
-
-This repository download is a source ZIP. Review the code and requested permissions before installing extensions, especially when using Developer mode. A successful installation here does not mean the extension has been reviewed or published by the Chrome Web Store.
+[Browse the repository on GitHub](https://github.com/rajvisual/A_minimalist_Chrome_hompage_extension)
